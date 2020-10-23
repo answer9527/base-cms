@@ -4,7 +4,15 @@
 
 <script>
 export default {
+  name:"Dashboard",
+  data(){
+    return{
 
+    }
+  },
+  created(){
+    console.log("初始化了Dashboard")
+  }
 }
 </script>
 

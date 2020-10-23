@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="menu-page">
     <el-menu
 
-      class="el-menu-vertical-demo"
-     router
+      class="el-menu-box"
+      router
       :default-active = "path"
-      style="width:260px;height:900px"
+      style="height:960px"
     >
       <div v-for="(item, index) in nav_list" :key="index">
         <el-menu-item :index="item.route" v-if="!item.children && item.isNav" :route="item.route">
@@ -34,19 +34,20 @@
 </template>
 
 <script>
+// 管理后台的菜单
 import adminMenu from "../../config/stage/menu";
 export default {
   name: "SideBar",
   data() {
     return {
-        path: '',
+      path: '',
       nav_list: [...adminMenu],
     };
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
+    // handleSelect(key, keyPath) {
+    //   console.log(key, keyPath);
+    // },
   },
 };
 </script>

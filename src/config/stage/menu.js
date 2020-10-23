@@ -8,6 +8,7 @@ const adminMenu = [
         filePath:"page/home/dashboard/index",
         order:null,
         isNav:true,
+        keepAlive:true
         
     },
     {
@@ -19,6 +20,7 @@ const adminMenu = [
         filePath:"",
         order:null,
         isNav:true,
+        keepAlive:true,
         children:[
             {
                 route:"/user/list",
@@ -28,7 +30,8 @@ const adminMenu = [
                 icon:"el-icon-setting",
                 filePath:"page/home/user/userList",
                 order:null,
-                isNav:true
+                isNav:true,
+                keepAlive:true
             }
         ]
     },
@@ -41,6 +44,7 @@ const adminMenu = [
         filePath:null,
         order:null,
         isNav:true,
+        keepAlive:true,
         children:[
             {
                 route:"/classic/list",
@@ -50,7 +54,8 @@ const adminMenu = [
                 icon:"el-icon-s-operation",
                 filePath:"page/home/classic/classicList",
                 order:null,
-                isNav:true
+                isNav:true,
+                keepAlive:true
             },
             {
                 route:"/classic/detail",
@@ -60,7 +65,8 @@ const adminMenu = [
                 icon:"",
                 filePath:"page/home/classic/classicDetail",
                 order:null,
-                isNav:false
+                isNav:false,
+                keepAlive:true
             },
             {
                 route:"/classic/add",
@@ -70,7 +76,8 @@ const adminMenu = [
                 icon:"el-icon-edit-outline",
                 filePath:"page/home/classic/classicAdd",
                 order:null,
-                isNav:true
+                isNav:true,
+                keepAlive:false
             }
         ]
     }

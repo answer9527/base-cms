@@ -4,7 +4,15 @@
 
 <script>
 export default {
+  name:"classicDetail",
+  data(){
+    return{
 
+    }
+  },
+  created(){
+    console.log("初始化了classicDetail")
+  }
 }
 </script>
 

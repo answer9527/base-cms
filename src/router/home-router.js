@@ -26,6 +26,7 @@ deepTravel(adminMenu,config=>{
         viewRouter.meta={
             title:config.title,
             icon:config.icon,
+            keepAlive:config.keepAlive
         }
         homeRouter.push(viewRouter)
     }
