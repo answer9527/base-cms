@@ -5,12 +5,14 @@ import App from './App'
 import router from './router'
 import axios from "axios"
 
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
-// import {Menu,Pagination,Table,TableColumn,Button} from "element-ui"
-// Vue.use(Button)
-// Vue.use(Menu)
+// import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
+// Vue.use(ElementUI);
+import {Menu,Submenu,MenuItem,Button} from "element-ui"
+Vue.use(Button)
+Vue.use(Menu)
+Vue.use(Submenu)
+Vue.use(MenuItem)
 Vue.config.productionTip = false
 
 // 全局的css

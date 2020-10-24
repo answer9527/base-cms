@@ -12,10 +12,11 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       "/v1":{
-        target:"https://story.chenlake.com/mina",
+        // target:"https://story.chenlake.com/mina",
+        target:'http://localhost:8068',
         changeOrigin:true,
         pathRewrite:{
-          
+
         }
       }
     },
@@ -51,7 +52,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps

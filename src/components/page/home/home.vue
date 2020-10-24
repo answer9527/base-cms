@@ -1,9 +1,9 @@
 <template>
   <div class="home_page flex flex-x">
       <div class="page_left">
-          <cmsSideBar/>
+          <cmsSideBar style="height:100%"/>
       </div>
-      <div class="page_right">
+      <div class="page_right flex-y">
           <cmsHeader/>
           <cmsTags/>
           <div class="content">
@@ -36,7 +36,7 @@ export default {
                 msg[i].name&&arr.push(msg[i].name)
             }
             this.tagsList = arr
-            console.log(this.tagsList)
+           
         })
     },
     components:{
@@ -46,14 +46,50 @@ export default {
 </script>
 
 <style scoped="scoped">
+.move-leave-active,
+.move-enter-active {
+  transition: all .5s;
+}
+
+.move-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.move-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+/* .move-enter-active{
+     animation: bounce-in .3s;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  75%{
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */
 .home_page{
     /* display: flex;
     flex-direction: row; */
+    height: 100%;
 }
 .page_left{
     width: 260px;
+    height: 100%;
 }
 .page_right{
     flex: 1;
+}
+.content{
+    background: linear-gradient(to right,#F0F2F5,#EFF1F4);
+    padding: 20px;
+    flex: 1;
+    overflow-x:hidden ;
 }
 </style>
