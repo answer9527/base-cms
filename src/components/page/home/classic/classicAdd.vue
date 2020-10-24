@@ -17,7 +17,7 @@ export default {
       VueEditor
   },
   created(){
-    console.log("初始化了classicAdd")
+    
   }
 }
 </script>

@@ -1,3 +1,15 @@
+// route     路由地址
+// name      路由的名称
+// title     菜单名
+// type      view 视图  folder 不可访问的视图
+// icon      菜单图标
+// filePath  导入的路由的路径
+// order     排序
+// isNav     是否为菜单导航
+// keepAlive 是否缓存
+// children  子节点
+
+
 const adminMenu = [
     {
         route:"/home/dashboard",

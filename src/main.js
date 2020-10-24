@@ -8,17 +8,45 @@ import axios from "axios"
 // import ElementUI from 'element-ui';
 // import 'element-ui/lib/theme-chalk/index.css';
 // Vue.use(ElementUI);
-import {Menu,Submenu,MenuItem,Button} from "element-ui"
-Vue.use(Button)
-Vue.use(Menu)
-Vue.use(Submenu)
-Vue.use(MenuItem)
+
+
+// 按需引入elementUI组件的抽离
+import Ele from "./components/common/Ele/index"
+Vue.use(Ele)
+
 Vue.config.productionTip = false
 
 // 全局的css
 import "./assets/css/common.css"
 
+// 引入 vuex
 import store from "./vuex/store"
+
+
+// 刷新后缓存token
+if (sessionStorage.getItem('token')) {
+  store.commit('SET_TOKEN', sessionStorage.getItem('token'))
+}
+
+
+
+// 刷新后缓存UserInfo
+if(sessionStorage.getItem("userInfo")){
+  store.commit("SET_USERINFO",JSON.parse(sessionStorage.getItem("userInfo")))
+}
+
+// 全局的导航守卫
+router.beforeEach((to, from, next) => {
+  if (to.path == '/login') {
+    sessionStorage.removeItem('token');
+  }
+  let token = sessionStorage.getItem('token');
+  if (!token && to.path != '/login') {
+    next({ path: '/login' })
+  } else {
+    next()
+  }
+})
 
 // 请求拦截器
 axios.interceptors.request.use(
@@ -35,6 +63,8 @@ axios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+// 响应拦截器
 
 
 /* eslint-disable no-new */

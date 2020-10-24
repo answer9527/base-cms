@@ -1,5 +1,4 @@
 import adminMenu from "../config/stage/menu"
-import { config } from "shelljs"
 const homeRouter=[]
 
 // 深度遍历配置的菜单
