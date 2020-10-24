@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import homeRouter from "./home-router"
-console.log(homeRouter)
 Vue.use(Router)
 
 export default new Router({
@@ -18,6 +17,7 @@ export default new Router({
         // },
         ...homeRouter
       ],
+      redirect:"/home/dashboard"
       
     },
     {

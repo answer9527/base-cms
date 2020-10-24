@@ -11,7 +11,7 @@ export default {
     }
   },
   created(){
-    console.log("初始化了Dashboard")
+    
   }
 }
 </script>

@@ -3,6 +3,7 @@
     <el-menu
       class="el-menu-box"
       router
+      @select="handleSelect"
       :default-active="path"
       style="height: 100%"
     >
@@ -49,9 +50,9 @@ export default {
     };
   },
   methods: {
-    // handleSelect(key, keyPath) {
-    //   console.log(key, keyPath);
-    // },
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    },
   },
 };
 </script>
