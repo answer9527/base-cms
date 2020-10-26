@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import {TestModel} from "@/model/test"
 export default {
   name:"Dashboard",
   data(){
@@ -11,7 +12,10 @@ export default {
     }
   },
   created(){
-    
+   
+    TestModel.test({}).then(res=>{
+      console.log(res)
+    })
   }
 }
 </script>

@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import {mapActions} from "vuex"
 import bus from "@/config/bus"
 export default {
   name:"Tags",
@@ -29,6 +30,7 @@ export default {
     this.setTags(this.$route)
   },
   methods:{
+    ...mapActions(['set_path_arr']),
     isActive(path) {
         return path === this.$route.fullPath;
     },
@@ -75,6 +77,7 @@ export default {
   },
   watch:{
     $route(newValue, oldValue){
+        this.set_path_arr(newValue.meta.pathArr)
         this.setTags(newValue);
     }
   }
@@ -84,6 +87,7 @@ export default {
 <style scoped="scoped">
 .tag_page{
     padding: 6px 0;
+    background: #F9FAFB;
     box-shadow: 0 4px 4px rgba(0,0,0,.08);
 }
 .tags-li{
@@ -101,13 +105,13 @@ export default {
 }
 .tags-all>.tags-li{
     color: #ffffff;
-    background: #42B983;
+    background: #3963BC;
     font-size: 14px;
     
 }
 .active{
     color: #ffffff;
-    background: #42B983;
+    background: #3963BC;
 }
 .active>.tags-li-title{
     color: #ffffff;

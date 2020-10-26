@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <editor id="tinymce" v-model="value" :init="init"  :key="tinymceFlag"></editor>
+    <div :style="{'width':width}">
+        <editor id="tinymce" v-model="value" :init="init"  :key="tinymceFlag"></editor>  
     </div>
 </template>
 
@@ -44,6 +44,10 @@
             height:{
                 type:Number,
                 default:500
+            },
+            width:{
+                type:String,
+                efault:"100%"
             }
         },
         data(){
@@ -62,8 +66,6 @@
                     toolbar:toolbar,
                     // 图片上传回调
                     images_upload_handler: (blobInfo, success, failure) => {
-                        // let formdata = new FormData()
-                        // formdata.set('file', blobInfo.blob())
                         Http.upload('/upload/file',blobInfo.blob()).then(res=>{
                         success(config.domain_url+res.data)
                         }).catch(res => {

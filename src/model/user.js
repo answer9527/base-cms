@@ -7,6 +7,13 @@ class UserModel{
             method:"POST"
         })
     }
+    static async test(data){
+        return await Http.request({
+            url:"/user/test",
+            data,
+            method:"POST"
+        })
+    }
 }
 export{
     UserModel

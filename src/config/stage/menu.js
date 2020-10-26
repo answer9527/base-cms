@@ -20,7 +20,8 @@ const adminMenu = [
         filePath:"page/home/dashboard/index",
         order:null,
         isNav:true,
-        keepAlive:true
+        keepAlive:true,
+        pathArr:["系统首页"]
         
     },
     {
@@ -33,6 +34,7 @@ const adminMenu = [
         order:null,
         isNav:true,
         keepAlive:true,
+        pathArr:["用户相关"],
         children:[
             {
                 route:"/user/list",
@@ -43,53 +45,58 @@ const adminMenu = [
                 filePath:"page/home/user/userList",
                 order:null,
                 isNav:true,
-                keepAlive:true
+                keepAlive:true,
+                pathArr:["用户相关","用户管理"],
             }
         ]
     },
     {
         route:null,
         name:"Classic",
-        title:"classic管理",
+        title:"文章管理",
         type:"folder",
         icon:"el-icon-film",
         filePath:null,
         order:null,
         isNav:true,
         keepAlive:true,
+        pathArr:["文章管理"],
         children:[
             {
                 route:"/classic/list",
                 name:"ClassicList",
-                title:"classic列表",
+                title:"文章列表",
                 type:"view",
                 icon:"el-icon-s-operation",
                 filePath:"page/home/classic/classicList",
                 order:null,
                 isNav:true,
-                keepAlive:true
+                keepAlive:true,
+                pathArr:["文章管理","文章列表"],
             },
             {
                 route:"/classic/detail",
                 name:"ClassicDetail",
-                title:"classic详情",
+                title:"文章详情",
                 type:"view",
                 icon:"",
                 filePath:"page/home/classic/classicDetail",
                 order:null,
                 isNav:false,
-                keepAlive:true
+                keepAlive:true,
+                pathArr:["文章管理","文章详情"],
             },
             {
                 route:"/classic/add",
                 name:"ClassicAdd",
-                title:"classic发布",
+                title:"文章发布",
                 type:"view",
                 icon:"el-icon-edit-outline",
                 filePath:"page/home/classic/classicAdd",
                 order:null,
                 isNav:true,
-                keepAlive:false
+                keepAlive:false,
+                pathArr:["文章管理","文章发布"],
             }
         ]
     }

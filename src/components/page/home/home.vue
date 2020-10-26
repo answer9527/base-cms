@@ -29,6 +29,9 @@ export default {
             tagsList:[]
         }
     },
+    components:{
+        cmsHeader,cmsSideBar,cmsTags
+    },
     created(){
         bus.$on("tags",msg=>{
             let arr = [];
@@ -38,9 +41,7 @@ export default {
             this.tagsList = arr
         })
     },
-    components:{
-        cmsHeader,cmsSideBar,cmsTags
-    }
+
 }
 </script>
 
@@ -79,14 +80,14 @@ export default {
     height: 100%;
 }
 .page_left{
-    width: 260px;
+    /* width: 260px; */
     height: 100%;
 }
 .page_right{
     flex: 1;
 }
 .content{
-    background: linear-gradient(to right,#F0F2F5,#EFF1F4);
+    /* background: linear-gradient(to right,#F9FAFB,#F9FAFB); */
     padding: 20px;
     flex: 1;
     overflow-x:hidden ;

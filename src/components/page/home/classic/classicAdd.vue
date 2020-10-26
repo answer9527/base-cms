@@ -1,6 +1,6 @@
 <template>
   <div>
-      <VueEditor/>
+      <VueEditor :height="600" @input="EditorInput"/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name:"classicAdd",
   data(){
     return{
-
+        content:""
     }
   },
   components:{
@@ -18,6 +18,12 @@ export default {
   },
   created(){
     
+  },
+  methods:{
+    // 编辑器输出的内容
+      EditorInput(val){
+        this.content = val
+      }
   }
 }
 </script>

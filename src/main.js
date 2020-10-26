@@ -65,6 +65,22 @@ axios.interceptors.request.use(
 );
 
 // 响应拦截器
+axios.interceptors.response.use(res=>{
+  return res
+},error=>{
+  let code = error.response.data.code
+  let msg = error.response.data.message
+  let re =/^4000/
+  // 4000开头的报错为token问题
+  if(re.test(code)){
+    Vue.prototype.$message.error(msg)
+    router.push({path:"/login",replace:true})
+  }else if(code!=0){
+    Vue.prototype.$message.error(msg)
+  }
+
+  return Promise.reject(error);
+})
 
 
 /* eslint-disable no-new */
