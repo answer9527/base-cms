@@ -49,7 +49,7 @@
 // 管理后台的菜单
 import adminMenu from "../../config/stage/menu";
 import {mapState} from "vuex"
-console.log(adminMenu)
+
 export default {
   name: "SideBar",
   data() {
