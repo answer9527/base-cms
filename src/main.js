@@ -19,6 +19,10 @@ Vue.config.productionTip = false
 // 全局的css
 import "./assets/css/common.css"
 
+// 全局的js
+import common from "./assets/js/common"
+Vue.use(common)
+
 // 引入 vuex
 import store from "./vuex/store"
 

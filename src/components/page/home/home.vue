@@ -91,5 +91,6 @@ export default {
     padding: 20px;
     flex: 1;
     overflow-x:hidden ;
+    background: #F5F5F5;
 }
 </style>

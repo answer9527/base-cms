@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dashboard_page">
     <v-Calendar :counts="counts" @nextMon="nextMon" @preMon="preMon" @selectDay="selectDay"></v-Calendar>
   </div>
 </template>
@@ -11,8 +11,7 @@ export default {
   name:"Dashboard",
   data(){
     return{
-      // counts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
-      counts:[2,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,8,8,8,9,9,9,10,10,10,11,11,11]
+      counts:[0,0,0,2,3,3,3,4,4,4,0,5,5,6,6,6,7,7,0,8,8,8,9,9,9,10,10,10,11,11,11]
     }
   },
   components:{
@@ -47,6 +46,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped="scoped">
+  .dashboard_page{
+    /* background: #F5F5F5; */
+  }
 </style>

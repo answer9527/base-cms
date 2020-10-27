@@ -1,16 +1,18 @@
 <template>
-  <div>
-      <div class="flex-x">
-          <div @click="preMon">上个月</div>
-          <div>{{currentYear}}年-</div>
-          <div>{{currentMon}}月</div>
-          <div @click="nextMon">下个月</div>
+  <div class="calendar_box_out" :style="{'width':width,'height':height}">
+      <div class="calendar_name">树洞日历</div>
+      <div class="time_btn_group flex-x flex-x-center flex-y-center">
+          <span @click="preMon" class="el-icon-arrow-left"></span>
+          <span class="time">{{currentYear}}年{{currentMon|add0}}月</span>
+          <span @click="nextMon" class="el-icon-arrow-right"></span>
       </div>
       <ul class="calendar_box flex-x">
-          <li v-for="(item,index) in weeks" :key="'no'+index">{{item}}</li>
-          <li v-for="(item,index) in days" :key="index" :class="{'today':activeMon&&todayDay==item.label}" @click="selectDay(item)">
-              <!-- <span>{{item.label}}</span> -->
-              <span>{{item.value}}</span>
+          <li v-for="(item,index) in weeks" :key="'no'+index" class="calendar_week">
+              <span>{{item}}</span>
+          </li>
+          <li v-for="(item,index) in days" :key="index" class="calendar_block flex-y flex-y-center" :class="{'today':activeMon&&todayDay==item.label}" @click="selectDay(item)">
+              <span>{{item.label}}</span>
+              <span v-if="item.value>0"></span>
           </li>
       </ul>
   </div>
@@ -37,6 +39,14 @@ export default {
     props:{
         counts:{
             type:Array
+        },
+        width:{
+            type:String,
+            default:"240px"
+        },
+        height:{
+            type:String,
+            default:"320px"
         }
     },
     created(){
@@ -114,11 +124,38 @@ export default {
             }
             this.$emit("selectDay",params)
         }
+    },
+    filters:{
+        add0(val){
+            return val>=10?val:"0"+val
+        }
     }
 }
 </script>
 
 <style scoped="scoped">
+.calendar_box_out{
+    background: #FFFFFF;
+    border-radius: 4px;
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+.calendar_box_out>.calendar_name{
+    /* text-align: center; */
+    font-size: 12px;
+}
+.calendar_box_out>.time_btn_group{
+    padding: 15px 0;
+}
+.calendar_box_out>.time_btn_group>span{
+    font-size: 14px;
+}
+.time_btn_group>span:nth-child(2){
+    display: inline-block;
+    font-size: 12px;
+    padding: 0 30px;
+}
 .calendar_box{
    /* width: 300px; */
    display: flex;
@@ -127,9 +164,44 @@ export default {
 }
 .calendar_box>li{
     width: 14.28%;
+    height:32px;
     text-align: center ;
+    
+
 }
-.calendar_box>.today{
+.calendar_box>.calendar_week>span{
+    font-weight: bold;
+    font-size: 12px;
+    /* height:32px; */
+  
+}
+.calendar_box>.calendar_block{
+    cursor: pointer;
+}
+.calendar_box>.calendar_block>span:nth-child(1){
+    font-size: 10px;
+    display: inline-block;
+    text-align: center;
+    line-height: 18px;
+    width: 18px;
+    height: 18px;
+    margin-bottom:2px;
+    color: #000000;
+    border-radius: 50%;
+}
+.calendar_box>li:nth-child(7n+1)>span:nth-child(1){
     color: red;
+}
+.calendar_box>.calendar_block>span:nth-child(2){
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: green;
+    border-radius: 50%;
+
+}
+.calendar_box>.today>span:nth-child(1){
+    color: #FFFFFF!important;
+    background: #A288F4;
 }
 </style>
