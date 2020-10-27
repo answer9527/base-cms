@@ -1,13 +1,14 @@
 <template>
-    <div :style="{'backgroundImage':'url('+imageSrc+')','backgroundSize':'cover','backgroundPosition':'center'}">
+    <div class="uploader_box" :style="{'backgroundImage':'url('+imageSrc+')','backgroundSize':'cover','backgroundPosition':'center'}">
         <input type="file" accept="image/*" ref="fileInt" @change="changeHandle"  v-if="imageSrc" class="person_avatar" style="opacity:0"/>
-        <div v-else class="add_avatar_btn">
-            <input class="ten_icon" accept="image/*" ref="fileInt" type="file" @change="changeHandle"/>
+        <div v-else class="add_avatar_btn" >
+            <input class="add_icon" accept="image/*" ref="fileInt" type="file" @change="changeHandle"/>
         </div>
     </div>
 </template>
 
 <script>
+
 import {Http} from "../../../utils/http"
 export default {
     name:"Uploader",
@@ -29,6 +30,26 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped="scoped">
+.uploader_box{
+    height: 160px;
+    width: 160px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.add_avatar_btn{
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../assets/img/uploader.png);
+    background-position: center;
+    background-size: cover;
+    
+}
+.add_icon{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
 </style>

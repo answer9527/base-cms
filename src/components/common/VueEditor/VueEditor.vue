@@ -62,12 +62,14 @@
                     menubar: true,//顶部菜单栏显示
                     elementpath: false,  //禁用编辑器底部的状态栏
                     paste_data_images: true,// 允许粘贴图像
+                    //   不主动转换成图片等相对地址
+                    convert_urls: false,
                     plugins:plugins,
                     toolbar:toolbar,
                     // 图片上传回调
                     images_upload_handler: (blobInfo, success, failure) => {
                         Http.upload('/upload/file',blobInfo.blob()).then(res=>{
-                        success(config.domain_url+res.data)
+                            success(config.domain_url+res.data)
                         }).catch(res => {
                             failure('error')
                         })

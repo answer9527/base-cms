@@ -7,6 +7,13 @@ class ClassicModel{
             method:"POST"
         })
     }
+    static async insertClassic(data){
+        return await Http.request({
+            url:"/classic/add",
+            data,
+            method:"POST"
+        })
+    }
 }
 
 export{
