@@ -26,18 +26,18 @@ import cmsHeader from "../../common/header"
 import cmsSideBar from "../../common/sideBar"
 import cmsTags from "../../common/tags"
 import bus from "@/config/bus"
+
 export default {
     name:"Home",
     data(){
         return{
             tagsList:[],
-          
+            
            
         }
     },
     computed:{
       is_keep(){
-        console.log(this.$route.meta.keepAlive)
         return this.$route.meta.keepAlive
       }
     },
@@ -62,12 +62,10 @@ export default {
 .move-enter-active {
   transition: all .2s;
 }
-
 .move-enter {
   opacity: 0;
   transform: translateX(-30px);
 }
-
 .move-leave-to {
   opacity: 0;
   transform: translateX(30px);

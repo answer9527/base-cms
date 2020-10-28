@@ -14,6 +14,9 @@ import axios from "axios"
 import Ele from "./components/common/Ele/index"
 Vue.use(Ele)
 
+// 处理ie兼容问题
+import "babel-polyfill"
+
 Vue.config.productionTip = false
 
 // 全局的css

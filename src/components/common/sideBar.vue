@@ -1,12 +1,11 @@
 <template>
-  <div class="menu-page">
+  <div class="menu-page" >
     <el-menu
       class="el-menu-box"
         background-color="#192A5E"
         text-color="#C4C9D2"
         active-text-color="#1890FF"
         router
-
       :default-active="path"
       :collapse="collapse"
       :style="{'width':collapse?'60px':'210px'}"
@@ -93,20 +92,23 @@ export default {
 
 <style scoped="scoped">
 
+
+.menu-page-open{
+    width: 210px;
+    transition: all .4s linear;
+}
 .menu-page{
     /* width: 60px; */
     height: 100%;
-    transition: all .4s linear;
-}
-.menu-page-open{
-    width: 210px;
+    position: relative;
     transition: all .4s linear;
 }
    
 
 .menu-page>.el-menu-box{
     height: 100%;
-     transition: all .4s linear;
+   
+     transition: all .1s linear !important;
 }
 .cms_name{
     display: flex;

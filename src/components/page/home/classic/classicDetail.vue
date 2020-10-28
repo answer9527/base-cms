@@ -36,7 +36,16 @@
           </el-col>
         </el-row>
         <el-form-item label="音乐地址">
-          <el-input  placeholder="请填写音乐地址" v-model="classic.url"></el-input>
+          <el-row>
+            <el-col :span="12">
+               <el-input  placeholder="请填写音乐地址" v-model="classic.url"></el-input>
+            </el-col>
+            <el-col :span="2">
+              <el-button type="primary" size="mini" >试听一下</el-button>
+            </el-col>
+          </el-row>
+         
+          
         </el-form-item>
         <el-form-item label="详情">
           <VueEditor :height="600" @input="EditorInput" :curValue="classic.content"/>
