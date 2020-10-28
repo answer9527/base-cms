@@ -75,7 +75,7 @@ const adminMenu = [
                 pathArr:["文章管理","文章列表"],
             },
             {
-                route:"/classic/detail",
+                route:"/classic/detail/:id",
                 name:"ClassicDetail",
                 title:"文章详情",
                 type:"view",
@@ -83,7 +83,7 @@ const adminMenu = [
                 filePath:"page/home/classic/classicDetail",
                 order:null,
                 isNav:false,
-                keepAlive:true,
+                keepAlive:false,
                 pathArr:["文章管理","文章详情"],
             },
             {
@@ -95,7 +95,7 @@ const adminMenu = [
                 filePath:"page/home/classic/classicAdd",
                 order:null,
                 isNav:true,
-                keepAlive:false,
+                keepAlive:true,
                 pathArr:["文章管理","文章发布"],
             }
         ]

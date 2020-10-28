@@ -34,9 +34,8 @@
       <el-table-column prop="like_count" label="收藏数" width="80" align="center"></el-table-column>      
       <el-table-column label="操作" width="200">
         <template slot-scope="scope">
-          <el-button type="primary" @click="edit_it(scope.row)" size="small" plain>编辑</el-button>
+          <el-button type="primary" @click="edit_it(scope.row.id)" size="small" plain>编辑</el-button>
           <el-button type="danger" @click="del_it(scope.row.id)" size="small" plain>删除</el-button>
-
         </template>
       </el-table-column> 
     </el-table>
@@ -58,6 +57,7 @@
 
 <script>
 import {ClassicModel} from "@/model/classic.js"
+import { Http } from '../../../../utils/http'
 export default {
     name:"classicList",
     data(){
@@ -105,6 +105,7 @@ export default {
               break;
           }
       },
+      // 获取列表
       get_list(){
         let params = {
           "page":this.page,
@@ -118,17 +119,26 @@ export default {
           this.total = res.data.total
         })
       },
+      // 分页
       change_page(num){
         this.page = num
         this.get_list()
       },
+      // 按条件查询列表
       search_list(keyword){
         this.page = 1;
         this.keyword = keyword
         this.get_list()
       },
-      add_one(){
-
+      // 删除
+      del_it(id){
+        ClassicModel.deleteClassic({id}).then(res=>{
+          this.$message.success(res.message)
+          this.get_list()
+        })
+      },
+      edit_it(id){
+        this.$router.push("/classic/detail/"+id)
       }
     } 
 }

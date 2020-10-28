@@ -8,9 +8,13 @@
           <cmsTags/>
           <div class="content">
             <transition name="move" mode="out-in">
-                <keep-alive :include="tagsList">
-                    <router-view></router-view>
+                <keep-alive :include="tagsList" >
+                    <router-view v-if="is_keep" ></router-view>
                 </keep-alive>
+            </transition> 
+             <transition name="move" mode="out-in">
+               <!-- 通过给router-view绑定key的方式来刷新雷士 /list/1  /list/2两路由之间的切换 -->
+                    <router-view v-if="!is_keep" :key="$route.fullPath"></router-view>
             </transition> 
           </div>
       </div>
@@ -26,8 +30,16 @@ export default {
     name:"Home",
     data(){
         return{
-            tagsList:[]
+            tagsList:[],
+          
+           
         }
+    },
+    computed:{
+      is_keep(){
+        console.log(this.$route.meta.keepAlive)
+        return this.$route.meta.keepAlive
+      }
     },
     components:{
         cmsHeader,cmsSideBar,cmsTags
@@ -48,7 +60,7 @@ export default {
 <style scoped="scoped">
 .move-leave-active,
 .move-enter-active {
-  transition: all .5s;
+  transition: all .2s;
 }
 
 .move-enter {

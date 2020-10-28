@@ -39,7 +39,7 @@ export default {
       })
     },
     selectDay(e){
-      this.counts = [...this.counts2]
+
       console.log(e)
     }
   }

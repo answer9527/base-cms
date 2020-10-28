@@ -1,6 +1,6 @@
 <template>
     <div class="uploader_box" :style="{'backgroundImage':'url('+imageSrc+')','backgroundSize':'cover','backgroundPosition':'center'}">
-        <input type="file" accept="image/*" ref="fileInt" @change="changeHandle"  v-if="imageSrc" class="person_avatar" style="opacity:0"/>
+        <input type="file" accept="image/*" ref="fileInt" @change="changeHandle"  v-if="imageSrc" class="add_icon"/>
         <div v-else class="add_avatar_btn" >
             <input class="add_icon" accept="image/*" ref="fileInt" type="file" @change="changeHandle"/>
         </div>
@@ -14,7 +14,13 @@ export default {
     name:"Uploader",
     data(){
         return{
-            imageSrc:""
+            
+        }
+    },
+    props:{
+        imageSrc:{
+            type:String,
+            default:""
         }
     },
     methods:{
@@ -22,7 +28,7 @@ export default {
             const file = this.$refs.fileInt.files[0];
             Http.upload("/upload/file",file).then(res=>{
                 this.$message.success(res.message)
-                this.imageSrc = res.data
+                // this.imageSrc = res.data
                 this.$emit("uploadSuccess", res.data)
             })
         }
