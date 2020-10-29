@@ -65,7 +65,6 @@
 <script>
 import {mapState,mapActions} from "vuex"
 import homeRouter from "../../router/home-router"
-console.log(homeRouter)
 export default {
   name:"cms-header",
   data(){

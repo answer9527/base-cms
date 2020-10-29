@@ -99,6 +99,18 @@ const adminMenu = [
                 pathArr:["文章管理","文章发布"],
             }
         ]
+    },
+    {
+        route:"/home/version",
+        name:"Version",
+        title:"版本管理",
+        type:"view",
+        icon:"el-icon-info",
+        filePath:"page/home/version/version",
+        order:null,
+        isNav:true,
+        keepAlive:true,
+        pathArr:["版本管理"], 
     }
 ]
 

@@ -41,7 +41,7 @@
                <el-input  placeholder="请填写音乐地址" v-model="classic.url"></el-input>
             </el-col>
             <el-col :span="2">
-              <el-button type="primary" size="mini" >试听一下</el-button>
+              <el-button type="primary" size="mini" @click="testPlay">试听一下</el-button>
             </el-col>
           </el-row>
          
@@ -65,6 +65,7 @@ import VueEditor from "@/components/common/VueEditor/VueEditor"
 import Uploader from "@/components/common/Uploader/Uploader"
 import {ClassicModel} from "@/model/classic"
 import {classicMixin} from "./classicMixin"
+import {mapState} from "vuex"
 export default {
   name:"classicDetail",
   mixins:[classicMixin],
@@ -72,6 +73,9 @@ export default {
     return{
        classic_id:null
     }
+  },
+  computed:{
+    ...mapState(["player"]),
   },
   created(){
 
@@ -95,6 +99,12 @@ export default {
         }
       })
 
+    },
+    // 测试播放
+    testPlay(){
+      this.player.src=this.classic.url
+      this.player.play()
+     
     }
   }
 }
@@ -102,4 +112,4 @@ export default {
 
 <style>
 
-</style>
+</style> 

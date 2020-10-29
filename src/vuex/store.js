@@ -11,7 +11,9 @@ const state = {
     // 菜单导航是否收缩
     collapse:false,
     // 导航路径
-    pathArr:[]
+    pathArr:[],
+    // 全局的播放器
+    player:new Audio()
 
 }
 
