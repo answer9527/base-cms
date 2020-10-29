@@ -23,6 +23,30 @@
     import 'tinymce/plugins/emoticons'  //表情
     import 'tinymce/plugins/paste' //粘贴
     import 'tinymce/plugins/advlist'
+    import "tinymce/plugins/anchor"
+    import "tinymce/plugins/autolink"
+    import "tinymce/plugins/autosave"
+    import "tinymce/plugins/codesample"
+    import "tinymce/plugins/colorpicker"
+    import "tinymce/plugins/contextmenu"
+    import "tinymce/plugins/directionality"
+    import "tinymce/plugins/imagetools"
+    import "tinymce/plugins/insertdatetime"
+    import "tinymce/plugins/lists"
+    import "tinymce/plugins/media"
+    import "tinymce/plugins/nonbreaking"
+    import "tinymce/plugins/noneditable"
+    import "tinymce/plugins/pagebreak"
+    import "tinymce/plugins/print"
+    import "tinymce/plugins/save"
+    import "tinymce/plugins/searchreplace"
+    import "tinymce/plugins/spellchecker"
+    import "tinymce/plugins/tabfocus"
+    import "tinymce/plugins/template"
+    import "tinymce/plugins/textcolor"
+    import "tinymce/plugins/textpattern"
+    import "tinymce/plugins/visualblocks"
+    import "tinymce/plugins/visualchars"
 
     import plugins from "./plugins"
     import toolbar from "./toolbar"
@@ -57,6 +81,7 @@
                     language_url: `${config.editor_url}static/tinymce/langs/zh_CN.js`,// 语言包的路径
                     language: 'zh_CN',//语言
                     skin_url: `${config.editor_url}static/tinymce/skins/ui/oxide`,// skin路径
+                    emoticons_database_url:`${config.editor_url}static/tinymce/emojis.min.js`,
                     height: this.height,//编辑器高度
                     branding: false,//是否禁用“Powered by TinyMCE”
                     menubar: true,//顶部菜单栏显示
