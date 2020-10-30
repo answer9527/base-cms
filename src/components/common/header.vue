@@ -7,8 +7,6 @@
         <el-breadcrumb separator-class="el-icon-arrow-right">
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
           <el-breadcrumb-item v-for="(item,index) in pathArr" :key="index">{{item}}</el-breadcrumb-item>
-          <!-- <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-          <el-breadcrumb-item>活动详情</el-breadcrumb-item> -->
         </el-breadcrumb>
       </div>
     </div>
@@ -86,6 +84,7 @@ export default {
   },
   methods:{
     ...mapActions(["change_collapse"]),
+    // 退出登录
     logout(){
       this.$router.push("/login")
     },
@@ -116,6 +115,7 @@ export default {
       }
       this.fullscreen = !this.fullscreen;
     },
+    // 打开关闭搜索框
     toggleSearch(){
       this.showSearch = !this.showSearch
     },

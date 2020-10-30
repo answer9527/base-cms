@@ -80,7 +80,6 @@ const classicMixin = {
               this.set_player_status(false)
             }else{
 
-
               if(this.playingAudio!=this.classic.url){
                 this.player.src = this.classic.url
                 this.set_playing_audio(this.classic.url)
