@@ -16,6 +16,14 @@ const mutations = {
     // 设置导航路径
     SET_PATH_ARR(state,arr){
         state.pathArr = arr
+    },
+    // 设置播放器的播放状态
+    SET_PLAYER_STATUS(state,status){
+        state.playerStatus = status
+    },
+    // 设置播放器的声音播放源
+    SET_PLAYING_AUDIO(state,url){
+        state.playingAudio = url
     }
 }
 

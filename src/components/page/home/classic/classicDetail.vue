@@ -35,18 +35,26 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-form-item label="音乐地址">
-          <el-row>
+        <el-form-item >
+          <el-row type="flex" align="middle" style="height:80px">
+            <span class="form__label">
+             音乐链接
+            </span>      
             <el-col :span="12">
-               <el-input  placeholder="请填写音乐地址" v-model="classic.url"></el-input>
+              <el-input  placeholder="请填写音乐地址" v-model="classic.url"></el-input>
+            </el-col>
+            <el-col :span="1">
+              <div class="playing_box" @click="playOrPause">
+                <div  :class="[playing?'pauseBtn':'playBtn']" :title="playing?'试听中....':'试听一下'"></div>
+              </div>
+              
             </el-col>
             <el-col :span="2">
-              <el-button type="primary" size="mini" @click="testPlay">试听一下</el-button>
+              <div class="playing" :style="{'width':playing?'120px':'0'}"></div>
             </el-col>
           </el-row>
-         
-          
         </el-form-item>
+
         <el-form-item label="详情">
           <VueEditor :height="600" @input="EditorInput" :curValue="classic.content"/>
         </el-form-item>
@@ -65,7 +73,6 @@ import VueEditor from "@/components/common/VueEditor/VueEditor"
 import Uploader from "@/components/common/Uploader/Uploader"
 import {ClassicModel} from "@/model/classic"
 import {classicMixin} from "./classicMixin"
-import {mapState} from "vuex"
 export default {
   name:"classicDetail",
   mixins:[classicMixin],
@@ -74,9 +81,7 @@ export default {
        classic_id:null
     }
   },
-  computed:{
-    ...mapState(["player"]),
-  },
+
   created(){
 
     this.classic_id = this.$route.params.id
@@ -100,16 +105,53 @@ export default {
       })
 
     },
-    // 测试播放
-    testPlay(){
-      this.player.src=this.classic.url
-      this.player.play()
-     
-    }
+
   }
 }
 </script>
 
-<style>
+<style scoped="scoped">
+.form__label{
+  position: absolute;
+  left: -70px;
+}
+.playing_box{
+  width: 34px;
+  height: 34px;
+  background: #FFFFFF;
+  /* padding: 4px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-left: 20px;
+}
+.playBtn{
+  width:16px;
+  height:16px;
+  background: url(../../../../assets/img/play_icon.png);
+  background-size: contain;
+  background-position: center;
+}
 
+.pauseBtn{
+  width: 16px;
+  height: 16px;
+  background: url(../../../../assets/img/pause_icon.png);
+    background-size: contain;
+  background-position: center;
+  
+}
+.playing{
+  background-image: url("../../../../assets/img/playing.gif");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 120px;
+  width: 0;
+  transition: all 0.6s;
+  /* height:60px; */
+
+}
 </style> 

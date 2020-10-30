@@ -13,7 +13,11 @@ const state = {
     // 导航路径
     pathArr:[],
     // 全局的播放器
-    player:new Audio()
+    player:new Audio(),
+    // 播放器的状态
+    playerStatus:false,
+    // 播放的歌曲链接
+    playingAudio:""
 
 }
 

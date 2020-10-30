@@ -42,6 +42,18 @@ if(sessionStorage.getItem("userInfo")){
   store.commit("SET_USERINFO",JSON.parse(sessionStorage.getItem("userInfo")))
 }
 
+
+if(store.state.player){
+  // 监听音频播放器播放结束
+  store.state.player.addEventListener('ended',()=>{
+    store.commit('SET_PLAYER_STATUS',false)
+  })
+  // 监听播放器播放异常
+  store.state.player.addEventListener('error',()=>{
+    Vue.prototype.$message.error("音乐播放异常!")
+  })
+}
+
 // 全局的导航守卫
 router.beforeEach((to, from, next) => {
   if (to.path == '/login') {
