@@ -1,4 +1,4 @@
-import {Message,Menu,Submenu,MenuItem,MenuItemGroup,Tooltip,Dropdown,DropdownMenu,DropdownItem,Breadcrumb,BreadcrumbItem,Autocomplete,Table,TableColumn,Avatar,Button,Tag, Pagination, Image, Form, FormItem,Input, Switch, Select, Option, Col, Row} from "element-ui"
+import {Message,Menu,Submenu,MenuItem,MenuItemGroup,Tooltip,Dropdown,DropdownMenu,DropdownItem,Breadcrumb,BreadcrumbItem,Autocomplete,Table,TableColumn,Avatar,Button,Tag, Pagination, Image, Form, FormItem,Input, Switch, Select, Option, Col, Row, Dialog} from "element-ui"
 export default{
     install(Vue){
         Vue.prototype.$message = Message;
@@ -28,5 +28,6 @@ export default{
         Vue.use(Option)
         Vue.use(Col)
         Vue.use(Row)
+        Vue.use(Dialog)
     }
 }
