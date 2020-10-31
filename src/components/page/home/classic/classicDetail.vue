@@ -111,47 +111,5 @@ export default {
 </script>
 
 <style scoped="scoped">
-.form__label{
-  position: absolute;
-  left: -70px;
-}
-.playing_box{
-  width: 34px;
-  height: 34px;
-  background: #FFFFFF;
-  /* padding: 4px; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  margin-left: 20px;
-}
-.playBtn{
-  width:16px;
-  height:16px;
-  background: url(../../../../assets/img/play_icon.png);
-  background-size: contain;
-  background-position: center;
-}
-
-.pauseBtn{
-  width: 16px;
-  height: 16px;
-  background: url(../../../../assets/img/pause_icon.png);
-    background-size: contain;
-  background-position: center;
-  
-}
-.playing{
-  background-image: url("../../../../assets/img/playing.gif");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 120px;
-  width: 0;
-  transition: all 0.6s;
-  /* height:60px; */
-
-}
+  @import "./classic.css"
 </style> 

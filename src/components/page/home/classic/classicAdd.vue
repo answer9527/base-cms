@@ -35,8 +35,24 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-form-item label="音乐地址">
-          <el-input  placeholder="请填写音乐地址" v-model="classic.url"></el-input>
+        <el-form-item >
+          <el-row type="flex" align="middle" style="height:80px">
+            <span class="form__label">
+             音乐链接
+            </span>      
+            <el-col :span="12">
+              <el-input  placeholder="请填写音乐地址" v-model="classic.url"></el-input>
+            </el-col>
+            <el-col :span="2">
+              <div class="playing_box" @click="playOrPause">
+                <div  :class="[playing?'pauseBtn':'playBtn']" :title="playing?'试听中....':'试听一下'"></div>
+              </div>
+              
+            </el-col>
+            <el-col :span="2">
+              <div class="playing" :style="{'width':playing?'120px':'0'}"></div>
+            </el-col>
+          </el-row>
         </el-form-item>
         <el-form-item label="详情">
           <VueEditor :height="600" @input="EditorInput"/>
@@ -61,6 +77,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped="scoped">
+  @import "./classic.css"
 </style>
