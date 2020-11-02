@@ -26,7 +26,7 @@ export default {
     }
   },
   created(){
-    // bus.$emit("tags",this.tagsList)
+    bus.$emit("tags",this.tagsList)
     this.setTags(this.$route)
   },
   methods:{

@@ -43,6 +43,14 @@ if(sessionStorage.getItem("userInfo")){
 }
 
 
+// 全局注册 $confirmAlert方法
+import createAlert from "./components/common/Confirm/index"
+Vue.use(createAlert)
+
+// 全局注册自定义的button
+import Button from "./components/common/Button/index"
+Vue.component("h-button",Button)
+
 if(store.state.player){
   // 监听音频播放器播放结束
   store.state.player.addEventListener('ended',()=>{

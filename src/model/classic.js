@@ -38,6 +38,33 @@ class ClassicModel{
             method:"POST"
         })
     }
+    // 根据classic的id 获取评论列表
+    static async getCommentByCid(data){
+        return await Http.request({
+            url:"/comment/selectByCid",
+            data,
+            method:"POST"
+        })
+    }   
+    // 发表评论
+    static async insertComment(data){
+        return await Http.request({
+            url:"/comment/insert",
+            data,
+            method:"POST"
+        })
+    }
+    // 删除评论
+    static async delComment(data){
+        return await Http.request({
+            url:"/comment/del/"+data.id
+        })
+    }
+    static async powerDelComment(data){
+        return await Http.request({
+            url:"/comment/power/del/"+data.id
+        })
+    }
 }
 
 export{

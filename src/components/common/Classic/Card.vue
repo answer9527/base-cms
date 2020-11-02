@@ -2,27 +2,27 @@
   <div class="classic_card_con">
         <li class="classic_card" @mouseenter="hoverIn" @mouseleave="hoverOut">
             <div class="card_top">
-            <el-image 
-                class="classic_image"
-                :src="classic.image" 
-                fit="none"
-                :preview-src-list="[classic.image]">
-            </el-image>
-            <div class="card_tool flex-x flex-x-end">
-                <div class="tool_right">
-                <span class="recommend_tag" v-if="classic.is_recommend">推荐</span>
-                <span class="type_tag">{{classic.type|formatClassicType}}</span>
-                </div>
-            </div>
-            </div>
-            <div class="classic_info">
-            <div class="classic_title">{{classic.title}}</div>
-            <div class="classic_intro">{{classic.intro}}</div>
-            <div class="classic_like-count">
-                <span v-if="classic.like_count">{{classic.like_count}}人喜欢</span>
-                <span v-else>暂无人喜欢</span>
-            </div>
-            <span class="edit_btn" :class="{'active_edit_btn':hover_active}"  @click="preview"></span>
+              <el-image 
+                  class="classic_image"
+                  :src="classic.image" 
+                  fit="none"
+                  :preview-src-list="[classic.image]">
+              </el-image>
+              <div class="card_tool flex-x flex-x-end">
+                  <div class="tool_right">
+                  <span class="recommend_tag" v-if="classic.is_recommend">推荐</span>
+                  <span class="type_tag">{{classic.type|formatClassicType}}</span>
+                  </div>
+              </div>
+              </div>
+              <div class="classic_info">
+              <div class="classic_title">{{classic.title}}</div>
+              <div class="classic_intro">{{classic.intro}}</div>
+              <div class="classic_like-count">
+                  <span v-if="classic.like_count">{{classic.like_count}}人喜欢</span>
+                  <span v-else>暂无人喜欢</span>
+              </div>
+              <span class="edit_btn" :class="{'active_edit_btn':hover_active}"  @click="preview"></span>
             </div>
         </li>
   </div>
@@ -173,7 +173,9 @@ export default {
   right:0;
   width: 0;
   height: 32px;
-  background: url(../../../assets/img/edit_card_icon.png);
+  background: url(../../../assets/img/edit_card_icon.png)no-repeat;
+  background-position: center;
+  background-size: contain;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s;
@@ -182,4 +184,5 @@ export default {
   right: 16px;
   width: 32px;
 }
+
 </style>

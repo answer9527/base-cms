@@ -13,22 +13,32 @@
 
 <script>
 import ClassicDetail from "./ClassicDetail"
+import {ClassicModel} from "@/model/classic.js"
 export default {
     name:"PhonePage",
     data(){
         return{
-
+            classic_detail:{}
         }
     },
     props:{
-        classic_detail:{
-            type:Object
+        classicId:{
+            type:Number,
+            default:1
         }
 
     },
+    created(){
+        ClassicModel.getDetailById(this.classicId).then(res=>{
+            let temp = res.data
+            temp. content = temp.content.replace(/\<img/gi, "<img style='width:100%;height:auto;display:block;'")
+            this.classic_detail =temp
+        })
+    },
     components:{
         ClassicDetail
-    }
+    },
+    
 }
 </script>
 
@@ -41,6 +51,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 .page-content{
     margin-top: 40px;
@@ -74,5 +85,6 @@ export default {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: 15px;
+
 }
 </style>
