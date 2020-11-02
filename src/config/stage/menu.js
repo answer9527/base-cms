@@ -101,6 +101,32 @@ const adminMenu = [
         ]
     },
     {
+        route:null,
+        name:"Hole",
+        title:"树洞管理",
+        type:"folder",
+        icon:"el-icon-umbrella",
+        filePath:null,
+        order:null,
+        isNav:true,
+        keepAlive:true,
+        pathArr:["树洞管理"],
+        children:[
+            {
+                route:"/hole/holelist",
+                name:"HoleList",
+                title:"树洞列表",
+                type:"view",
+                icon:"el-icon-document",
+                filePath:"page/home/hole/holeList",
+                order:null,
+                isNav:true,
+                keepAlive:true,
+                pathArr:["树洞管理","树洞列表"],
+            }
+        ]
+    },
+    {
         route:"/home/version",
         name:"Version",
         title:"版本管理",
