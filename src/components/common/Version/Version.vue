@@ -1,8 +1,9 @@
 <template>
-  <div>
-      <div class="flex-x flex-y-center">
+  <div class="version_one">
+      <div class="flex-x flex-y-center version_top">
           <span class="v_icon"></span>
           <span>{{$common.formatTime(createTime,"-",2)}}</span>
+          <span class="update_item" @click="update_it">更新</span>
       </div>
       <div class="v_content flex-x">
           <div class="flex-x flex-x-center">
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import {VersionModel} from "@/model/version.js"
 export default {
     name:"versionListOne",
     props:{
@@ -30,11 +32,24 @@ export default {
         intro:{
             type:String
         }
+    },
+    data(){
+        return{
+
+        }
+    },
+    methods:{
+        update_it(){
+            console.log(VersionModel)
+        }
     }
 }
 </script>
 
 <style scoped="scoped">
+.version_one{
+    cursor: pointer;
+}  
 .v_icon{
     display: inline-block;
     width: 24px;
@@ -43,6 +58,18 @@ export default {
     background-position: center;
     background-size: contain;
     margin:5px 8px;
+}
+.version_top>.update_item{
+    /* display: none; */
+    opacity: 0;
+    font-size: 14px;
+    color: #3963BC;
+    margin-left: 14px;
+    transition: 0.5s all;
+}
+.version_one:hover .update_item{
+    /* display: inline-block; */
+    opacity: 1;
 }
 .v_content>div:nth-child(2){
     padding: 8px 0;
