@@ -99,6 +99,7 @@ export default {
 }
 .content{
     /* background: linear-gradient(to right,#F9FAFB,#F9FAFB); */
+    flex: 1;
     padding: 20px;
     overflow-x:hidden ;
     background: #F5F5F5;

@@ -32,16 +32,14 @@
             <div class="no_more"></div>
             <div>暂无评论</div>
         </div>
-
-
       </div>
 </template>
 
 <script>
-import {ClassicModel} from "@/model/classic.js"
+import {HoleModel} from "@/model/hole.js"
 import Comment from "../Comment/Comment"
 export default {
-    name:"ClassicComment",
+    name:"HoleComment",
     data(){
         return{
             page:1,
@@ -51,7 +49,7 @@ export default {
         }
     },
     props:{
-      classicId:{
+      holeId:{
         type:Number,
         default:1
       }
@@ -65,12 +63,11 @@ export default {
     methods:{
       get_comment_list(){
         let params = {
-          "key":this.classicId,
+          "key":this.holeId,
           "size":this.size,
           "page":this.page
         }
-        console.log(params)
-        ClassicModel.getCommentByCid(params).then(res=>{
+        HoleModel.get_Comment(params).then(res=>{
           this.total = res.data.total
           this.comment_list = res.data.list
         })
@@ -81,10 +78,11 @@ export default {
       },
       del_comment(e){
         this.$confirmAlert("是否删除该条评论？").then(()=>{
-          ClassicModel.powerDelComment(e).then(res=>{
+          HoleModel.powerDelComment(e).then(res=>{
             this.$message.success(res.message)
             this.get_comment_list()
           })
+          
         }).catch(()=>{
           this.$message.info("取消删除")
         })

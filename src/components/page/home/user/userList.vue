@@ -22,6 +22,7 @@
           <el-tag
             effect="dark"
             :type="scope.row.gender==1?'info':'success'"
+            size="mini"
           >{{scope.row.gender==1?'男性':'女性'}}</el-tag>
         </template>
       </el-table-column>
@@ -29,6 +30,7 @@
            <template slot-scope="scope">
           <el-tag
             effect="dark"
+            size="mini"
             :type="scope.row.account?'info':'success'"
           >{{scope.row.account?'非微信用户':'微信用户'}}</el-tag>
         </template>
