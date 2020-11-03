@@ -88,6 +88,7 @@ export default {
     /* display: flex;
     flex-direction: row; */
     height: 100%;
+   
 }
 .page_left{
     /* width: 260px; */
@@ -99,7 +100,6 @@ export default {
 .content{
     /* background: linear-gradient(to right,#F9FAFB,#F9FAFB); */
     padding: 20px;
-    flex: 1;
     overflow-x:hidden ;
     background: #F5F5F5;
 }

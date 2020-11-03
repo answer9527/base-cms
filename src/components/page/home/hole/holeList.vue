@@ -3,21 +3,18 @@
     <el-table
       :data="hole_list"
       highlight-current-row
-      style="width: 100%;"
       :row-style="{height:'60px'}"
       size="small"
     >
-      <el-table-column type="index" width="80" align="center"></el-table-column>
-      <el-table-column prop="create_time" label="注册时间" :formatter="formatTime" sortable></el-table-column>
-      <el-table-column prop="id" label="id"></el-table-column>
+      <el-table-column type="index"  align="center"></el-table-column>
+      <el-table-column prop="create_time" label="发表时间" :formatter="formatTime" sortable ></el-table-column>
        <el-table-column prop="userName" label="作者" sortable></el-table-column>
       <el-table-column label="头像" sortable>
           <template slot-scope="scope">
               <el-avatar :src="scope.row.avatarUrl"></el-avatar>
           </template>
       </el-table-column>
-      <el-table-column prop="title" label="标题" sortable></el-table-column>
-      <!-- <el-table-column prop="content" label="内容" sortable></el-table-column> -->
+      
       <el-table-column label="性别" sortable>
         <template slot-scope="scope">
           <el-tag
@@ -26,17 +23,34 @@
           >{{scope.row.gender==1?'男性':'女性'}}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="用户类型">
+      <el-table-column label="评论可见" >
            <template slot-scope="scope">
           <el-tag
             effect="dark"
-            :type="scope.row.account?'info':'success'"
-          >{{scope.row.account?'非微信用户':'微信用户'}}</el-tag>
+            :type="scope.row.commentVisible?'success':'info'"
+          >{{scope.row.commentVisible?'可见':'不可见'}}</el-tag>
         </template>
        </el-table-column>    
-      <el-table-column label="操作" width="400">
+      <el-table-column label="能否评论" >
         <template slot-scope="scope">
-          <el-button type="primary" @click="edit_it(scope.row)" size="small" plain>编辑</el-button>
+          <el-tag
+            effect="dark"
+            :type="scope.row.canComment?'success':'info'"
+          >{{scope.row.canComment?'能':'否'}}</el-tag>
+        </template>
+      </el-table-column>  
+      <el-table-column label="权限">
+        <template slot-scope="scope">
+          <el-tag
+            effect="dark"
+            :type="scope.row.type==1?'success':scope.row.type==2?'warning':'info'"
+          >{{scope.row.type==1?'公开':scope.row.type==2?'匿名':'仅自己可见'}}</el-tag>
+        </template>
+      </el-table-column>  
+      <el-table-column prop="title" label="标题" sortable ></el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button type="primary" @click="show_detail(scope.row)" size="small" plain>查看详情</el-button>
           <el-button type="danger" @click="del_it(scope.row.id)" size="small" plain>删除</el-button>
         </template>
       </el-table-column>
@@ -97,10 +111,20 @@ export default {
             this.page=num
             this.get_hole_list()
         },
+        show_detail(item){
+          console.log(item)
+        },
+        del_it(id){
+          console.log(id)
+        }
+
     }
 }
 </script>
 
-<style>
-
+<style scoped="hole_list_page">
+  .hole_list_page{
+    width: 100%;
+    overflow: hidden;
+  }
 </style>
