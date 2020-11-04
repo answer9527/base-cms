@@ -139,6 +139,32 @@ const adminMenu = [
         pathArr:["网抑一下"]
     },
     {
+        route:null,
+        name:"Opinion",
+        title:"意见反馈",
+        type:"folder",
+        icon:"el-icon-question",
+        filePath:null,
+        order:null,
+        isNav:true,
+        keepAlive:true,
+        pathArr:["意见反馈"],
+        children:[
+            {
+                route:"/home/opinion/list",
+                name:"OpinionList",
+                title:"反馈列表",
+                type:"view",
+                icon:"el-icon-s-operation",
+                filePath:"page/home/opinion/opinionList",
+                order:null,
+                isNav:true,
+                keepAlive:true,
+                pathArr:["意见反馈","反馈列表"],           
+            }
+        ]
+    },
+    {
         route:"/home/version",
         name:"Version",
         title:"版本管理",
