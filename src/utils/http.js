@@ -1,7 +1,7 @@
 import axios from "axios"
 import config from "../config/config"
 axios.defaults.baseURL=config.base_url
-axios.defaults.timeout = 2000;
+axios.defaults.timeout = 3000
 class Http{
     // 接口请求
     static async request({url,data={},method="GET"}){

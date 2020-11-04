@@ -1,15 +1,15 @@
 <template>
   <div class="home_page flex flex-x">
       <div class="page_left">
-          <cmsSideBar style="height:100%"/>
+          <cmsSideBar/>
       </div>
-      <div class="page_right flex-y">
+      <div class="page_right flex-y " :class="{'right-collapse':collapse}">
           <cmsHeader/>
           <cmsTags/>
           <div class="content">
             <transition name="move" mode="out-in">
-                <keep-alive :include="tagsList" >
-                    <router-view v-if="is_keep" ></router-view>
+                <keep-alive :include="tagsList">
+                    <router-view v-if="is_keep"></router-view>
                 </keep-alive>
             </transition> 
              <transition name="move" mode="out-in">
@@ -26,7 +26,7 @@ import cmsHeader from "../../common/header"
 import cmsSideBar from "../../common/sideBar"
 import cmsTags from "../../common/tags"
 import bus from "@/config/bus"
-
+import {mapState} from "vuex"
 export default {
     name:"Home",
     data(){
@@ -37,6 +37,7 @@ export default {
         }
     },
     computed:{
+      ...mapState(['collapse']),
       is_keep(){
         return this.$route.meta.keepAlive
       }
@@ -85,23 +86,32 @@ export default {
   }
 } */
 .home_page{
-    /* display: flex;
-    flex-direction: row; */
+ 
     height: 100%;
    
 }
 .page_left{
-    /* width: 260px; */
     height: 100%;
 }
 .page_right{
-    flex: 1;
+    height: 100%;
+    position: absolute;
+    left: 210px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: left .3s ease-in-out;
+    transition: left .3s ease-in-out;
+}
+.right-collapse{
+  left: 65px;
 }
 .content{
-    /* background: linear-gradient(to right,#F9FAFB,#F9FAFB); */
     flex: 1;
     padding: 20px;
+    box-sizing: border-box;
     overflow-x:hidden ;
     background: #F5F5F5;
+    box-sizing: border-box;
 }
 </style>

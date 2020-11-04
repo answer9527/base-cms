@@ -2,15 +2,16 @@
   <div class="menu-page" >
     <el-menu
       class="el-menu-box"
+        :class="{'menu-collapse':collapse}"
         background-color="#192A5E"
         text-color="#C4C9D2"
         active-text-color="#1890FF"
         router
       :default-active="path"
       :collapse="collapse"
-      :style="{'width':collapse?'60px':'210px'}"
+     
     >
-      
+       <!-- :style="{'width':collapse?'60px':'210px'}" -->
       <div class="cms_name" v-if="collapse">陈湖</div>
       <div class="cms_name" v-else>陈湖旧事</div>
       <template v-for="(item, index) in nav_list" >
@@ -93,22 +94,23 @@ export default {
 <style scoped="scoped">
 
 
-.menu-page-open{
-    width: 210px;
-    transition: all .4s linear;
-}
+
 .menu-page{
-    /* width: 60px; */
+    background: #192A5E;
     height: 100%;
     position: relative;
-    transition: all .4s linear;
+   
 }
    
-
+/* 菜单默认展开 */
 .menu-page>.el-menu-box{
+    width: 210px;
     height: 100%;
-   
-     transition: all .1s linear !important;
+    transition: all .1s linear !important;
+}
+/* 收缩后的菜单宽度 */
+.menu-page>.menu-collapse{
+  width: 65px;
 }
 .cms_name{
     display: flex;

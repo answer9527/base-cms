@@ -127,6 +127,18 @@ const adminMenu = [
         ]
     },
     {
+        route:"/home/sentence",
+        name:"Sentence",
+        title:"网抑一下",
+        type:"view",
+        icon:"el-icon-cloudy-and-sunny",
+        filePath:"page/home/sentence/sentenceList",
+        order:null,
+        isNav:true,
+        keepAlive:true,
+        pathArr:["网抑一下"]
+    },
+    {
         route:"/home/version",
         name:"Version",
         title:"版本管理",
