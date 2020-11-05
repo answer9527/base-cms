@@ -49,8 +49,8 @@ export default {
 .txt_out{
     
     width: 300px;
-    padding: 20px;
-    border-radius: 20px;
+    padding: 40px 20px 40px 20px;
+    border-radius: 16px;
     margin:20px;
     position: relative;
 
@@ -84,16 +84,16 @@ export default {
 }
 .txt_out>.leaf{
     position: absolute;
-    bottom: -10px;
+    bottom: 0px;
     left: 0;
     width: 340px;
-    height: 20px;
-    background: url(../../../assets/img/leaf.png);
-    background-position: center;
-    background-size: contain;
+    height: 50px;
+    background: url(../../../assets/img/leaf.png) no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 .txt_in{
-   border: 1px dashed #ffffff;
+   /* border: 1px dashed #ffffff; */
    padding: 10px;
    border-radius: 20px;
    color: #FFFFFF;

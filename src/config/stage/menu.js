@@ -140,7 +140,7 @@ const adminMenu = [
     },
     {
         route:null,
-        name:"Opinion",
+        name:"Suggest",
         title:"意见反馈",
         type:"folder",
         icon:"el-icon-question",
@@ -151,12 +151,12 @@ const adminMenu = [
         pathArr:["意见反馈"],
         children:[
             {
-                route:"/home/opinion/list",
-                name:"OpinionList",
+                route:"/home/suggest/list",
+                name:"SuggestList",
                 title:"反馈列表",
                 type:"view",
                 icon:"el-icon-s-operation",
-                filePath:"page/home/opinion/opinionList",
+                filePath:"page/home/suggest/suggestList",
                 order:null,
                 isNav:true,
                 keepAlive:true,

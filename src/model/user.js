@@ -7,9 +7,10 @@ class UserModel{
             method:"POST"
         })
     }
+    // 管理员登录
     static async login(data){
         return await Http.request({
-            url:"/user/pwdToken",
+            url:"/user/pwdToken/admin",
             data,
             method:"POST"
         })
