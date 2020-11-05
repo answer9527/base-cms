@@ -140,6 +140,41 @@ const adminMenu = [
     },
     {
         route:null,
+        title:"时光邮局",
+        type:"folder",
+        icon:"el-icon-date",
+        filePath:null,
+        order:null,
+        isNav:true,
+        keepAlive:true,
+        pathArr:["时光邮局"],
+        children:[
+            {
+                route:"/home/letter/future",
+                title:"未来的信",
+                type:"view",
+                icon:"el-icon-s-promotion",
+                filePath:"page/home/letter/letterFuture",
+                order:null,
+                isNav:true,
+                keepAlive:true,
+                pathArr:["时光邮局","未来的信"]
+            },
+            {
+                route:"/home/letter/past",
+                title:"流金岁月",
+                type:"view",
+                icon:"el-icon-document-checked",
+                filePath:"page/home/letter/letterPast",
+                order:null,
+                isNav:true,
+                keepAlive:true,
+                pathArr:["时光邮局","流金岁月"]
+            }
+        ]
+    },
+    {
+        route:null,
         name:"Suggest",
         title:"意见反馈",
         type:"folder",

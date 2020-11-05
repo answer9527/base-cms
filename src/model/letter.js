@@ -1,9 +1,11 @@
 import {Http} from "../utils/http"
 
 class LetterModel{
-    static async getLetterList(){
+    static async getLetterList(data){
         return await Http.request({
-            url:"/letter/"
+            url:"/letter/list",
+            data,
+            method:"POST"
         })
     }
 }

@@ -1,10 +1,23 @@
 <template>
   <div>
-      <ul>
+      <ul class="suggest_list flex-x">
         <li v-for="(item,index) in list" :key="index">
           <Suggest :suggest="item" @replyIt="replyIt"/>
         </li>
       </ul>
+      <div>
+          <el-pagination
+            :page-size="size"
+            :pager-count="11"
+            layout="prev, pager, next"
+            :total="total"
+            background
+            @current-change = change_page
+            :current-page.sync="page"
+            style="text-align:center"
+          >
+          </el-pagination>
+      </div>
   </div>
 </template>
 
@@ -17,7 +30,7 @@ export default {
     return{
       total:0,
       page:1,
-      size:10,
+      size:12,
       keyword:null,
       list:[]
     }
@@ -44,11 +57,17 @@ export default {
       SuggestModel.replySuggest(params).then(res=>{
         this.$message.success(res.message)
       })
+    },
+    change_page(e){
+      this.page =e 
+      this.get_suggest_list()
     }
   }
 }
 </script>
 
-<style>
-
+<style scoped="scoped">
+.suggest_list{
+  flex-wrap: wrap;
+}
 </style>

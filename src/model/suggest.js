@@ -17,6 +17,11 @@ class SuggestModel{
             method:"POST"
         })
     }
+    static async delSuggest(data){
+        return await Http.request({
+            url:"/suggest/del/"+data.id
+        })
+    }
 
 }
 
