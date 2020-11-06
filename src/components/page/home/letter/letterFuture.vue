@@ -10,7 +10,7 @@ export default {
     return{
       page:1,
       size:10,
-      keyword:"past"
+      keyword:"future"
     }
   },
   created(){
