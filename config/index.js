@@ -12,8 +12,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       "/v1":{
-        // target:"https://story.chenlake.com/mina",
-        target:'http://localhost:8068',
+        target:"https://story.chenlake.com/mina",
+        // target:'http://localhost:8068',
         changeOrigin:true,
         pathRewrite:{
 

@@ -92,6 +92,7 @@ export default {
 }
 .page_left{
     height: 100%;
+    overflow-y: scroll;
 }
 .page_right{
     height: 100%;
