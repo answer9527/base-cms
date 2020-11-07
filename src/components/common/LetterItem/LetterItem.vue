@@ -3,7 +3,8 @@
         
         <div class="letter_one">
             <div class="user">
-                <div class="distance">{{letterInfo.planTime|timeOut}}</div>
+                <div class="distance" v-if="type=='future'">{{letterInfo.planTime|timeOut}}</div>
+                <div class="distance" v-else>已投递</div>
                 <div class="avatar" :style="{'backgroundImage':'url('+letterInfo.avatarUrl+')'}"></div>
                 <div class="userName">{{letterInfo.userName}}</div>
             </div>
@@ -30,7 +31,13 @@ export default {
     props:{
         letterInfo:{
             type:Object
-        }
+        },
+
+            type:{
+                type:String,
+                default:"future"
+            }
+   
     },
     methods:{
 
@@ -59,7 +66,7 @@ export default {
     background: #FFFFFF;
     padding: 10px 0 20px 0;
     border-radius: 20px;
-    margin: 10px;
+    margin: 30px;
 }
 .letter_one{
     width: 450px;

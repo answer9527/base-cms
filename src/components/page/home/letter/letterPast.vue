@@ -1,36 +1,47 @@
 <template>
-  <div>流金岁月</div>
+  <div>
+    <ul class="flex-x letter_list">
+      <li v-for="(item,index) in list" :key="index">
+         <LetterItem :letterInfo="item" :type="keyword"/>
+      </li>
+    </ul>
+    <div>
+      <el-pagination
+          :page-size="size"
+          :pager-count="11"
+          layout="prev, pager, next"
+          :total="total"
+          background
+          @current-change = change_page
+          :current-page.sync="page"
+          style="text-align:center"
+      >
+      </el-pagination>  
+    </div>    
+  </div>
 </template>
 
 <script>
 import {LetterModel} from "@/model/letter"
+import {letterMixin} from "./letterMixin"
+import LetterItem from "@/components/common/LetterItem/LetterItem"
 export default {
   name:"letterPast",
+  mixins:[letterMixin],
+  components:{
+    LetterItem
+  },
   data(){
     return{
-      page:1,
-      size:10,
       keyword:"past"
     }
   },
-  created(){
-    this.get_letter_list()
-  },
-  methods:{
-    get_letter_list(){
-      let params ={
-        "page":this.page,
-        "size":this.size,
-        "keyword":this.keyword
-      }
-      LetterModel.getLetterList(params).then(res=>{
-        console.log(res)
-      })
-    }
-  }
+
+
 }
 </script>
-
-<style>
-
+<style scoped="scoped">
+  .letter_list{
+    flex-wrap: wrap;
+  }
 </style>

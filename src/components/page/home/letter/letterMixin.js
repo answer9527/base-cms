@@ -1,0 +1,36 @@
+import {LetterModel} from "@/model/letter"
+const letterMixin = {
+    data(){
+        return{
+            total:0,
+            page:1,
+            size:6,
+            keyword:"future",
+            list:[]
+        }
+    },
+    created(){
+        this.get_letter_list()
+    },
+    methods:{
+        get_letter_list(){
+            let params ={
+                "page":this.page,
+                "size":this.size,
+                "keyword":this.keyword
+            }
+            LetterModel.getLetterList(params).then(res=>{
+                this.list = res.data.list
+                this.total = res.data.total
+            })
+        },
+        change_page(e){
+            this.page = e
+            this.get_letter_list()
+        }
+    }
+}
+
+export{
+    letterMixin
+}
