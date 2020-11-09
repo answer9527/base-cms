@@ -21,4 +21,4 @@ const prod ={
 }
  
 
-export default prod
+export default dev

@@ -2,6 +2,7 @@ import {LetterModel} from "@/model/letter"
 const letterMixin = {
     data(){
         return{
+            start:0,
             total:0,
             page:1,
             size:6,
