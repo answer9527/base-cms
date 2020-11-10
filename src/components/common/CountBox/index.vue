@@ -1,13 +1,13 @@
 <template>
-  <div class="count_box flex-x flex-x-between">
-      <div>
-          <div>
+  <div class="count_box flex-x flex-x-between flex-y-center">
+      <div class="box_left">
+          <div class="in_count">
               <span>{{count}}</span>
               <span>（{{unit}}）</span>
           </div>
-          <div>{{intro}}</div>
+          <span>{{intro}}</span>
       </div>
-      <div>
+      <div class="box_right">
           <i :class="iconClass" class="count_icon"></i>
       </div>
   </div>
@@ -45,11 +45,18 @@ export default {
     border-radius: 10px;
     width: 100%;
     box-sizing: border-box;
-    padding:40px 16px;
+    padding:28px 14px;
     box-shadow: 0 2px 4px rgba(0,21,41,.08);
 }
-.count_icon{
+.box_left>.in_count>span{
+    color: #3963BC;
+}   
+.box_left>.in_count>span:nth-child(1){
     font-size: 40px;
+    
+}
+.count_icon{
+    font-size: 60px;
     color: #3963BC;
 }
 </style>

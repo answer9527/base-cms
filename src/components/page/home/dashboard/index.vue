@@ -1,6 +1,10 @@
 <template>
   <div class="dashboard_page">
     <div>
+      <div></div>
+      <div></div>
+    </div>
+    <div>
       <ul class="flex-x flex-x-between count_box_row">
         <li v-for="(item,index) in count_list" :key="index">
           <v-Count-Box :count="item.count" :unit="item.unit" :intro="item.intro" :iconClass="item.iconClass"/>
@@ -44,7 +48,12 @@ export default {
           unit:"篇",
           intro:"累计收藏数",
           iconClass:"el-icon-s-claim"
-
+        },
+                {
+          count:600,
+          unit:"次",
+          intro:"累计点赞数",
+          iconClass:"el-icon-s-claim"
         }
       ]
     }
@@ -84,10 +93,10 @@ export default {
 
 <style scoped="scoped">
   .dashboard_page{
-    padding: 10px  100px;
+    padding: 10px  10px;
     /* background: #F5F5F5; */
   }
   .count_box_row>li{
-    width: 22%;
+    width: 19%;
   }
 </style>
