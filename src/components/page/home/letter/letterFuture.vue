@@ -71,15 +71,13 @@ export default {
   },
   data(){
     return{
-      show_bg:true
+     
        
     }
 
   },
   methods:{
-    close_bg(){
-      this.show_bg = false
-    }
+
   }
   
 }
@@ -95,7 +93,7 @@ export default {
   height:750px;
 }
 .letter_bg>.bg_right{
-  
+    
 }
 .letter_bg>.letter_type{
   position: absolute;

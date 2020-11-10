@@ -7,7 +7,8 @@ const letterMixin = {
             page:1,
             size:6,
             keyword:"future",
-            list:[]
+            list:[],
+            show_bg:true
         }
     },
     created(){
@@ -28,6 +29,9 @@ const letterMixin = {
         change_page(e){
             this.page = e
             this.get_letter_list()
+        },
+        close_bg(){
+            this.show_bg = false
         }
     }
 }

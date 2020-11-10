@@ -1,6 +1,6 @@
 <template>
   <div class="calendar_box_out" :style="{'width':width,'height':height}">
-      <div class="calendar_name">树洞日历</div>
+      <div class="calendar_name">邮局日历</div>
       <div class="time_btn_group flex-x flex-x-center flex-y-center">
           <span @click="preMon" class="el-icon-arrow-left"></span>
           <span class="time">{{currentYear}}年{{currentMon|add0}}月</span>
