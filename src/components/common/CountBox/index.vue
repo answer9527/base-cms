@@ -45,18 +45,18 @@ export default {
     border-radius: 10px;
     width: 100%;
     box-sizing: border-box;
-    padding:28px 14px;
+    padding:20px;
     box-shadow: 0 2px 4px rgba(0,21,41,.08);
 }
 .box_left>.in_count>span{
     color: #3963BC;
 }   
 .box_left>.in_count>span:nth-child(1){
-    font-size: 40px;
+    font-size: 30px;
     
 }
 .count_icon{
-    font-size: 60px;
+    font-size: 40px;
     color: #3963BC;
 }
 </style>
