@@ -1,9 +1,11 @@
 <template>
   <div class="dashboard_page">
+    <!-- 作者温馨提示展示 -->
     <div class="flex-x flex-x-between page_row_one">
       <v-hello class="hello_com"/>
       <v-team class="team_com"/>
     </div>
+    <!-- 数据量的统计 -->
     <div>
       <ul class="flex-x flex-x-between count_box_row">
         <li v-for="(item,index) in count_list" :key="index">
@@ -11,7 +13,11 @@
         </li>
       </ul>
     </div>
-    <v-Calendar :counts="counts" @nextMon="nextMon" @preMon="preMon" @selectDay="selectDay"></v-Calendar>
+    <div class="page_row_three flex-x">
+      <v-Calendar :counts="counts" @nextMon="nextMon" @preMon="preMon" @selectDay="selectDay" width="400px" height="420px"></v-Calendar>
+      <v-Drag-Classic/>
+    </div>
+    
   </div>
 </template>
 
@@ -21,6 +27,7 @@ import Calendar from "@/components/common/Calendar/Calendar"
 import CountBox from "@/components/common/CountBox/index"
 import Hello from "@/components/common/Hello/index"
 import Team from  "@/components/common/Team/index"
+import DragClassic from "@/components/common/Classic/Drag"
 export default {
   name:"Dashboard",
   data(){
@@ -51,7 +58,7 @@ export default {
           intro:"累计收藏数",
           iconClass:"el-icon-s-claim"
         },
-                {
+        {
           count:600,
           unit:"次",
           intro:"累计点赞数",
@@ -64,7 +71,8 @@ export default {
     "v-Calendar":Calendar,
     "v-Count-Box":CountBox,
     "v-hello":Hello,
-    "v-team":Team
+    "v-team":Team,
+    "v-Drag-Classic":DragClassic
   },
   created(){
     // this.test()
@@ -112,5 +120,9 @@ export default {
   }
   .count_box_row>li{
     width: 19%;
+  }
+
+  .page_row_three{
+    padding: 30px 0;
   }
 </style>

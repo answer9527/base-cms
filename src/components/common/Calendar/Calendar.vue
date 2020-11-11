@@ -139,13 +139,20 @@ export default {
     border-radius: 4px;
     padding: 10px;
     box-sizing: border-box;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; */
 
 }
 .calendar_box_out>.calendar_name{
     /* text-align: center; */
-    font-size: 12px;
+    font-size: 14px;
+    /* position: absolute;
+    top: 20px; */
 }
 .calendar_box_out>.time_btn_group{
+
     padding: 15px 0;
 }
 .calendar_box_out>.time_btn_group>span{
@@ -179,7 +186,7 @@ export default {
     cursor: pointer;
 }
 .calendar_box>.calendar_block>span:nth-child(1){
-    font-size: 10px;
+    font-size: 12px;
     display: inline-block;
     text-align: center;
     line-height: 18px;
