@@ -13,6 +13,7 @@
     "@tinymce/tinymce-vue": "^3.2.4",
     "axios": "^0.20.0",
     "babel-polyfill": "^6.26.0",
+    "echarts": "^4.9.0",
     "element-ui": "^2.13.2",
     "tinymce": "^5.5.1",
     "vue": "^2.5.2",

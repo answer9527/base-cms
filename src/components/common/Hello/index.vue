@@ -22,7 +22,8 @@ export default {
         timeHello(){
             let time = new Date()
             let t = time.getHours()
-            if(t>0 &&t<5){
+            console.log(t)
+            if(t<5){
                 return "凌晨了、记得保重身体哦！"
             }else if(t<11){
                 return "早上好、一日之计在于晨。"

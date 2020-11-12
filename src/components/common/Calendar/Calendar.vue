@@ -139,21 +139,22 @@ export default {
     border-radius: 4px;
     padding: 10px;
     box-sizing: border-box;
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative; */
+    position: relative;
 
 }
 .calendar_box_out>.calendar_name{
     /* text-align: center; */
     font-size: 14px;
-    /* position: absolute;
-    top: 20px; */
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 .calendar_box_out>.time_btn_group{
-
-    padding: 15px 0;
+  
+    padding: 20px 0;
 }
 .calendar_box_out>.time_btn_group>span{
     font-size: 14px;
@@ -168,6 +169,8 @@ export default {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
+   min-height: 230px;
+ 
 }
 .calendar_box>li{
     width: 14.28%;

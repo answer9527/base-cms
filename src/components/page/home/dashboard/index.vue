@@ -13,9 +13,14 @@
         </li>
       </ul>
     </div>
-    <div class="page_row_three flex-x">
-      <v-Calendar :counts="counts" @nextMon="nextMon" @preMon="preMon" @selectDay="selectDay" width="400px" height="420px"></v-Calendar>
-      <v-Drag-Classic/>
+    <div class="page_row_three flex-x flex-x-between">
+      <v-Drag-Classic class="drag_list"/>
+      <div class="three_mindder">
+        <v-Calendar :counts="counts" @nextMon="nextMon" @preMon="preMon" @selectDay="selectDay" width="100%" height="320px"></v-Calendar>
+        <div>2222</div>
+      </div>
+      <v-Classic-Pie class="three_right"/>
+      
     </div>
     
   </div>
@@ -28,6 +33,7 @@ import CountBox from "@/components/common/CountBox/index"
 import Hello from "@/components/common/Hello/index"
 import Team from  "@/components/common/Team/index"
 import DragClassic from "@/components/common/Classic/Drag"
+import ClassicPie from "@/components/common/Classic/Pie"
 export default {
   name:"Dashboard",
   data(){
@@ -72,7 +78,8 @@ export default {
     "v-Count-Box":CountBox,
     "v-hello":Hello,
     "v-team":Team,
-    "v-Drag-Classic":DragClassic
+    "v-Drag-Classic":DragClassic,
+    "v-Classic-Pie":ClassicPie
   },
   created(){
     // this.test()
@@ -124,5 +131,17 @@ export default {
 
   .page_row_three{
     padding: 30px 0;
+  }
+  .drag_list{
+    width:45%;
+
+  }
+  .three_mindder{
+    width: 20%;
+  }
+  .three_right{
+    height:100%;
+    background:#FFFFFF;
+    width:30%
   }
 </style>

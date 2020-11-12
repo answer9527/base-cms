@@ -38,6 +38,11 @@ class ClassicModel{
             method:"POST"
         })
     }
+    static async getRecommendList(){
+        return await Http.request({
+            url:"/classic/recommend/list"
+        })
+    }
     // 根据classic的id 获取评论列表
     static async getCommentByCid(data){
         return await Http.request({
@@ -60,11 +65,13 @@ class ClassicModel{
             url:"/comment/del/"+data.id
         })
     }
+    // 管理员强制删除评论
     static async powerDelComment(data){
         return await Http.request({
             url:"/comment/power/del/"+data.id
         })
     }
+    
 }
 
 export{
