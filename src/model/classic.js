@@ -38,6 +38,7 @@ class ClassicModel{
             method:"POST"
         })
     }
+    // 获取推荐的列表
     static async getRecommendList(){
         return await Http.request({
             url:"/classic/recommend/list"
@@ -69,6 +70,12 @@ class ClassicModel{
     static async powerDelComment(data){
         return await Http.request({
             url:"/comment/power/del/"+data.id
+        })
+    }
+    // 获取各classic类型的统计情况
+    static async getClassicTypeSortTotal(){
+        return await Http.request({
+            url:"/classicType/sort/total"
         })
     }
     

@@ -70,7 +70,9 @@ export default {
           intro:"累计点赞数",
           iconClass:"el-icon-s-claim"
         }
-      ]
+      ],
+      // 
+     
     }
   },
   components:{
@@ -83,6 +85,7 @@ export default {
   },
   created(){
     // this.test()
+   
   },
   methods:{
     // 测试
@@ -105,7 +108,7 @@ export default {
     selectDay(e){
 
       console.log(e)
-    }
+    },
   }
 }
 </script>
