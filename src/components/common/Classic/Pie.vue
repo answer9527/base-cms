@@ -25,7 +25,6 @@ export default {
                 let legend_data = res.data.map(ele=>{
                     return ele.name
                 })
-                console.log(legend_data)
                 myChart.setOption({
                     title: { 
                         text: '文艺类型分布情况',

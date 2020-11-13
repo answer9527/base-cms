@@ -2,11 +2,15 @@
   <div class="drag_block">
       <div class="drag_title">推荐中</div>
       <div  class="drag_ul_list">
-        <draggable element="ul" v-model="listdata">
+        <draggable element="ul" v-model="listdata"  animation="500" @start="onStart" @end="onEnd" :move="onMove">
                 <li v-for="(item,index) in listdata" :key="index" class="drag_item flex-x flex-y-center">
                     <span class="type_tag" :class="'type_tag'+item.type">{{item.type|formatClassicType}}</span>
                     <div>
                         {{item.intro}}   ( {{item.author}} 《{{item.title}}》)
+                    </div>
+                    <div>
+                        <span>编辑</span>
+                        <span>取消</span>
                     </div>
                 </li>
         </draggable>
@@ -37,6 +41,21 @@ export default {
         ClassicModel.getRecommendList().then(res=>{
             this.listdata = res.data
         })
+    },
+    methods:{
+        onStart(e){
+            // console.log(e)
+        },
+        onEnd(e){
+            // return false
+            // console.log(e)
+        },
+        onMove(e,originE){
+            console.log(e)
+            console.log(originE)
+            return false
+        }
+
     },
     filters:{
         formatClassicType(type){

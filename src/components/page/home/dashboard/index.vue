@@ -9,7 +9,7 @@
     <div>
       <ul class="flex-x flex-x-between count_box_row">
         <li v-for="(item,index) in count_list" :key="index">
-          <v-Count-Box :value="item.value" :unit="item.unit" :name="item.name" :icon="item.icon"/>
+          <v-Count-Box :value="item.value" :value2="item.value2" :unit="item.unit" :name="item.name" :icon="item.icon"/>
         </li>
       </ul>
     </div>
@@ -17,7 +17,9 @@
       
       <div class="three_mindder flex-y flex-y-between flex-x-between">
         <v-Calendar :counts="counts" @nextMon="nextMon" @preMon="preMon" @selectDay="selectDay" width="100%" height="360px"></v-Calendar>
-        <div class="mindder_bottom"></div>
+        <div class="mindder_bottom">
+          {{rand_sentence}}
+        </div>
       </div>
       <div class="three_right">
          <v-Classic-Pie />
@@ -34,6 +36,7 @@
 <script>
 import {TestModel} from "@/model/test"
 import {OtherModel} from "@/model/other"
+import {SentenceModel} from "@/model/sentence"
 import Calendar from "@/components/common/Calendar/Calendar"
 import CountBox from "@/components/common/CountBox/index"
 import Hello from "@/components/common/Hello/index"
@@ -44,6 +47,7 @@ export default {
   name:"Dashboard",
   data(){
     return{
+      rand_sentence:"",
       counts:[0,0,0,2,3,3,3,4,4,4,0,5,5,6,6,6,7,7,0,8,8,8,9,9,9,10,10,10,11,11,11],
       // 各项统计结果
       count_list:[
@@ -71,6 +75,7 @@ export default {
   created(){
     // this.test()
    this.get_sort_total_list()
+   this.get_sentence_rand()
   },
   methods:{
     // 测试
@@ -94,9 +99,16 @@ export default {
 
       console.log(e)
     },
+    // 获取统计数字量
     get_sort_total_list(){
       OtherModel.getDashboardSortTotal().then(res=>{
         this.count_list = res.data
+      })
+    },
+    // 获取随机的网抑
+    get_sentence_rand(){
+      SentenceModel.getRandOne().then(res=>{
+        this.rand_sentence = res.data.txt
       })
     }
 
@@ -137,8 +149,16 @@ export default {
    .three_mindder>.mindder_bottom{
      height: 180px;
      width: 100%;
+     padding: 20px;
+     box-sizing: border-box;
      background: #FFFFFF;
      border-radius:5px;
+     font-size: 14px;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
 
   }
   .three_right{

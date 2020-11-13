@@ -22,6 +22,11 @@ class SentenceModel{
             url:"/sentence/del/"+data.id
         })
     }
+    static async getRandOne(){
+        return await Http.request({
+            url:"/sentence/rand"
+        })
+    }
 }
 export{
     SentenceModel

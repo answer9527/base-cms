@@ -69,7 +69,6 @@ export default {
           "size":this.size,
           "page":this.page
         }
-        console.log(params)
         ClassicModel.getCommentByCid(params).then(res=>{
           this.total = res.data.total
           this.comment_list = res.data.list

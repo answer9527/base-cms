@@ -40,7 +40,7 @@ export default {
     },
     methods:{
         update_it(){
-            console.log(VersionModel)
+            
         }
     }
 }

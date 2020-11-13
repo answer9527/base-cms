@@ -44,7 +44,7 @@ const classicMixin = {
           VueEditor,Uploader
       },
       created(){
-        // console.log(this.$common.classicType)
+
       },
       methods:{
         ...mapActions(["set_player_status","set_playing_audio"]),

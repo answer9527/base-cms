@@ -84,7 +84,7 @@ export default {
         this.versionForm.wgt = e
     },
     insert_version(refName){
-            console.log(this.versionForm)
+          
             this.$refs[refName].validate((valid)=>{
               if(valid){
                 VersionModel.insertVersion(this.versionForm).then(res=>{
