@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <div ref="pieChart" style="width:100%;height:376px"></div>
+  <div class="pie_out flex-y">
+      <div ref="pieChart" style="width:100%;height:500px"></div>
   </div>
 </template>
 
@@ -19,19 +19,33 @@ export default {
     },
     methods: {
         drawLine(){
-            console.log(this.dataList)
             // 基于准备好的dom，初始化echarts实例
             let myChart = echarts.init(this.$refs['pieChart'])
             ClassicModel.getClassicTypeSortTotal().then(res=>{
+                let legend_data = res.data.map(ele=>{
+                    return ele.name
+                })
+                console.log(legend_data)
                 myChart.setOption({
                     title: { 
-                        text: '文章的类型分布',
-                        subtext: '纯属虚构',
-                        left: 'center'
+                        text: '文艺类型分布情况',
+                        subtext: 'Classic',
+                        left: 'center',
+                        // top:0
                     },
-                    tooltip: {},
+                    legend: {
+                        // orient: 'vertical',
+                        // top: 'middle',
+                        bottom: 10,
+                        left: 'center',
+                        data: legend_data
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c}篇 ({d}%)'
+                    },
                     series: [{
-                        name: '销量',
+                        name: '数量',
                         type: 'pie',
                         data: res.data
                     }]
@@ -45,6 +59,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped="scoped">
+.pie_out{
+    padding: 20px;
+}
 </style>

@@ -2,13 +2,13 @@
   <div class="count_box flex-x flex-x-between flex-y-center">
       <div class="box_left">
           <div class="in_count">
-              <span>{{count}}</span>
+              <span>{{value}}</span>
               <span>（{{unit}}）</span>
           </div>
-          <span>{{intro}}</span>
+          <span>{{name}}</span>
       </div>
       <div class="box_right">
-          <i :class="iconClass" class="count_icon"></i>
+          <i :class="icon" class="count_icon"></i>
       </div>
   </div>
 </template>
@@ -22,17 +22,17 @@ export default {
         }
     },
     props:{
-        count:{
+        value:{
             type:Number,
             defautl:0
         },
         unit:{
             type:String
         },
-        intro:{
+        name:{
             type:String
         },
-        iconClass:{
+        icon:{
             type:String
         }
     }

@@ -85,7 +85,7 @@ export default {
     box-sizing: border-box;
 }
 .drag_ul_list::-webkit-scrollbar {
-    width: 2px;    
+    width:0px;    
     /*height: 4px;*/
 }
 .drag_ul_list::-webkit-scrollbar-thumb {
