@@ -28,9 +28,8 @@ export default {
     name:"ClassicDraggable",
     data(){
         return{
-        listdata:[
-
-        ]
+        listdata:[],
+        
 
         }
     },
@@ -44,16 +43,32 @@ export default {
     },
     methods:{
         onStart(e){
-            // console.log(e)
+            // console.log(e.oldIndex)
         },
         onEnd(e){
-            // return false
-            // console.log(e)
+            let len = this.listdata.length
+            let idx = e.newIndex
+            let temp = {
+                id:this.listdata[idx].id,
+                is_recommend:true,
+                recommend_time:null
+            }
+            if(idx==0){
+                temp.sort = 0
+
+            }else if(idx==len-1){
+                temp.sort = this.listdata[len-1].sort+1
+            }else{
+                temp.sort=(this.listdata[idx-1].sort + this.listdata[idx+1].sort)/2
+            }
+
+            ClassicModel.updateClassic(temp).then(res=>{
+                this.$message.success(res.message)
+            }) 
         },
         onMove(e,originE){
-            console.log(e)
-            console.log(originE)
-            return false
+
+          
         }
 
     },
