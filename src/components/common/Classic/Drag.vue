@@ -37,14 +37,22 @@ export default {
         draggable
     },
     created(){
-        ClassicModel.getRecommendList().then(res=>{
-            this.listdata = res.data
-        })
+
+        this.get_recommend_list()
     },
     methods:{
-        onStart(e){
-            // console.log(e.oldIndex)
+
+        // 获取推荐中的列表
+        get_recommend_list(){
+            ClassicModel.getRecommendList().then(res=>{
+                this.listdata = res.data
+            })
         },
+        // 拖拽开始触发
+        onStart(e){
+           
+        },
+        // 拖拽结束触发
         onEnd(e){
             let len = this.listdata.length
             let idx = e.newIndex
@@ -54,21 +62,23 @@ export default {
                 recommend_time:null
             }
             if(idx==0){
-                temp.sort = 0
+                temp.sort = this.listdata[1].sort -1
 
             }else if(idx==len-1){
-                temp.sort = this.listdata[len-1].sort+1
+
+                temp.sort = this.listdata[len-2].sort+1
             }else{
                 temp.sort=(this.listdata[idx-1].sort + this.listdata[idx+1].sort)/2
             }
 
             ClassicModel.updateClassic(temp).then(res=>{
+                this.get_recommend_list()
                 this.$message.success(res.message)
             }) 
         },
         onMove(e,originE){
 
-          
+         
         }
 
     },

@@ -23,7 +23,6 @@
       </div>
       <div class="three_right">
          <v-Classic-Pie />
-  
       </div>
       <v-Drag-Classic class="drag_list"/>
      
@@ -34,15 +33,19 @@
 </template>
 
 <script>
+
 import {TestModel} from "@/model/test"
 import {OtherModel} from "@/model/other"
 import {SentenceModel} from "@/model/sentence"
+
 import Calendar from "@/components/common/Calendar/Calendar"
 import CountBox from "@/components/common/CountBox/index"
 import Hello from "@/components/common/Hello/index"
 import Team from  "@/components/common/Team/index"
 import DragClassic from "@/components/common/Classic/Drag"
 import ClassicPie from "@/components/common/Classic/Pie"
+
+
 export default {
   name:"Dashboard",
   data(){
@@ -84,17 +87,20 @@ export default {
         console.log(res)
       })
     },
+    // 切换到下个月
     nextMon(e){
       TestModel.testCalendar().then(res=>{
         this.counts=res.data.counts
         
       })
     },
+    // 切换到上个月
     preMon(e){
       TestModel.testCalendar().then(res=>{
         this.counts=res.data.counts
       })
     },
+    // 点击日历天
     selectDay(e){
 
       console.log(e)

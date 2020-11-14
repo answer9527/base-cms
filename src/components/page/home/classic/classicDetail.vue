@@ -88,11 +88,13 @@ export default {
     this.get_classic_detail(this.classic_id)
   },
   methods:{
+    // 获取文艺的详情
     get_classic_detail(){
       ClassicModel.getDetailById(this.classic_id).then(res=>{
         this.classic = res.data
       })
     },
+    // 更新文艺
     update_classic(refName){
       this.$refs[refName].validate((valid)=>{
         if(valid){

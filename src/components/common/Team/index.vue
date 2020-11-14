@@ -77,18 +77,18 @@ export default {
 
 .team-ul>li .shadow-box {
     position: relative;
-    display: inline-block;
     margin-right: 10px;
     width: 14px;
     height: 14px;
     border-radius: 14px;
     background-color: #fff;
     transform: translateY(2px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .shadow-box>.team-shadow {
-    position: absolute;
-    top: 25%;
-    left: 25%;
     display: inline-block;
     width: 6px;
     height: 6px;
