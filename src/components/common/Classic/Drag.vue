@@ -6,11 +6,11 @@
                 <li v-for="(item,index) in listdata" :key="index" class="drag_item flex-x flex-y-center">
                     <span class="type_tag" :class="'type_tag'+item.type">{{item.type|formatClassicType}}</span>
                     <div>
-                        {{item.intro}}   ( {{item.author}} 《{{item.title}}》)
+                        {{item.intro}}   ( {{item.author?item.author:'佚名'}} 《{{item.title}}》)
                     </div>
-                    <div>
-                        <span>编辑</span>
-                        <span>取消</span>
+                    <div class="right_btn_group flex-x flex-x-end">
+                        <router-link :to="'/classic/detail/'+item.id" tag="span">编辑</router-link>
+                        <span @click="down_it(item.id)">下架</span>
                     </div>
                 </li>
         </draggable>
@@ -72,13 +72,25 @@ export default {
             }
 
             ClassicModel.updateClassic(temp).then(res=>{
-                this.get_recommend_list()
+               
                 this.$message.success(res.message)
+                 this.get_recommend_list()
             }) 
         },
         onMove(e,originE){
 
          
+        },
+        down_it(id){
+            this.$confirmAlert("是否确认下架？").then(()=>{
+                ClassicModel.cancelRecommend({id}).then(res=>{
+                    this.$message.success(res.message)
+                    this.get_recommend_list()
+                })
+            }).catch(()=>{
+                this.$message.info("取消下架！")
+            })
+
         }
 
     },
@@ -185,5 +197,19 @@ export default {
     color: #409eff;
     background: #ecf5ff;
     border: 1px solid #409eff;
+}
+.drag_item>.right_btn_group{
+  flex: 1;
+ 
+}
+.drag_item>.right_btn_group>span{
+    display: inline-block;
+    /* background: red; */
+    padding: 0 6px;
+    color: #409eff;
+    font-size: 12px;
+}
+.drag_item>.right_btn_group>span:nth-child(2){
+    color: #F56C6C;
 }
 </style>

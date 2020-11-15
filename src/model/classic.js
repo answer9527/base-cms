@@ -78,6 +78,12 @@ class ClassicModel{
             url:"/classicType/sort/total"
         })
     }
+    // 下架某个推荐中的classic
+    static async cancelRecommend(data){
+        return await Http.request({
+            url:"/classic/removeRecommend?id="+data.id
+        })
+    }
     
 }
 

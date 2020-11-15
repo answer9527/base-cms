@@ -46,13 +46,12 @@ export default {
         timeOut(val){
             let now = new Date().getTime()
             let plan = new Date(val).getTime()
-            let d = parseInt((plan-now)/24/60/60/1000)
-            if(d>0){
-                return d+"天"
-            }else if(d=0){
-                return "1天内"
+            let d = (plan-now)/24/60/60/1000
+            console.log(plan-now)
+            if(d>1){
+                return parseInt(d)+"天"
             }else{
-                return "已送达"
+                 return "1天内"
             }
             
         }

@@ -1,6 +1,6 @@
 <template>
   <div class="calendar_box_out" :style="{'width':width,'height':height}">
-      <div class="calendar_name">邮局日历</div>
+      <div class="calendar_name">时光邮局</div>
       <div class="time_btn_group flex-x flex-x-center flex-y-center">
           <span @click="preMon" class="el-icon-arrow-left"></span>
           <span class="time">{{currentYear}}年{{currentMon|add0}}月</span>
@@ -81,7 +81,7 @@ export default {
             for (let i = 1; i <= MonDaysTotal; i++) {
                  arr.push({
                     "label":i,
-                    "value":this.counts[i-1]
+                    "value":this.counts[i-1].value
                  })
             }
             this.days = arr
@@ -117,17 +117,27 @@ export default {
         },
         // 点击某天
         selectDay(item){
-            let params = {
-                "year":this.currentYear,
-                "mon":this.currentMon,
-                "day":item.label
+            if(item.value>0){
+                let params = {
+                    "y":this.currentYear,
+                    "m":this.currentMon,
+                    "d":item.label
+                }
+                this.$emit("selectDay",params)
+            }else{
+                this.$message.warning("此日无信件！")
             }
-            this.$emit("selectDay",params)
+
         }
     },
     filters:{
         add0(val){
             return val>=10?val:"0"+val
+        }
+    },
+    watch:{
+        counts(){
+            this.calendarInit()
         }
     }
 }
