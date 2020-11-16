@@ -23,6 +23,11 @@ class LetterModel{
             method:"POST"
         })
     }
+    static async sendLetter(data){
+        return await Http.request({
+            url:"/letter/send?id="+data.id
+        })
+    }
 }
 export{
     LetterModel

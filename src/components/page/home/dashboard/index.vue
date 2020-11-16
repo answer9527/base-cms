@@ -87,7 +87,6 @@
 
 <script>
 
-import {TestModel} from "@/model/test"
 import {OtherModel} from "@/model/other"
 import {SentenceModel} from "@/model/sentence"
 import {LetterModel} from "@/model/letter"
@@ -105,6 +104,7 @@ export default {
   data(){
     return{
       rand_sentence:"",
+      // 日历数据
       counts:[
       ],
       // 各项统计结果
@@ -138,19 +138,13 @@ export default {
     "v-Classic-Pie":ClassicPie
   },
   created(){
-    // this.test()
+
    this.get_sort_total_list()
    this.get_sentence_rand()
    this.get_month_count()
   
   },
   methods:{
-    // 测试
-    test(){
-      TestModel.test({}).then(res=>{
-        console.log(res)
-      })
-    },
     // 获取当前月份信件情况
     get_month_count(){
       let params = {
@@ -199,6 +193,13 @@ export default {
     },
     // 投递邮件
     send_letter(row){
+      this.$confirmAlert('是否确认邮寄！').then(()=>{
+        LetterModel.sendLetter({id:row.id}).then(res=>{
+          this.$message.success(res.message)
+        })
+      }).catch(()=>{
+        this.$message.info("取消邮寄！")
+      })
       return false
     }
 
@@ -236,7 +237,7 @@ export default {
     width: 20%;
     
   }
-   .three_mindder>.mindder_bottom{
+  .three_mindder>.mindder_bottom{
      height: 180px;
      width: 100%;
      padding: 20px;
