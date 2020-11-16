@@ -47,7 +47,6 @@ export default {
             let now = new Date().getTime()
             let plan = new Date(val).getTime()
             let d = (plan-now)/24/60/60/1000
-            console.log(plan-now)
             if(d>1){
                 return parseInt(d)+"天"
             }else{
