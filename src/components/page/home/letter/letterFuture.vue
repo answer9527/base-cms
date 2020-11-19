@@ -9,6 +9,7 @@
           <CountTo :startVal='start' :endVal='total' :duration='2000' class="count_box"/>
           <span>封信件投递中...... </span>
         </div>
+
         <div class="post_word flex-x">
           你亲手交出的信，
           永远是别人的心事。

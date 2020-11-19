@@ -32,6 +32,11 @@ const letterMixin = {
         },
         close_bg(){
             this.show_bg = false
+        },
+        show_letter_detail(id){
+            LetterModel.getPublicLetterById(id).then(res=>{
+                console.log(res)
+            })
         }
     }
 }

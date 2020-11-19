@@ -1,7 +1,7 @@
 <template>
     <div class="letter_box">
         
-        <div class="letter_one">
+        <div class="letter_one" @click="openInfo">
             <div class="user">
                 <div class="distance" v-if="type=='future'">{{letterInfo.planTime|timeOut}}</div>
                 <div class="distance" v-else>已投递</div>
@@ -14,7 +14,9 @@
             </div>
         </div>
         <div>
-
+            <el-dialog :visible.sync="dialog_info" title="信件详情">
+                111
+            </el-dialog>
         </div>
     </div>
 
@@ -25,7 +27,7 @@ export default {
     name:"letterOne",
     data(){
         return{
-
+            dialog_info:false
         }
     },
     props:{
@@ -40,7 +42,9 @@ export default {
    
     },
     methods:{
-
+        openInfo(){
+            this.dialog_info = true
+        }
     },
     filters:{
         timeOut(val){

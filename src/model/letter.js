@@ -28,6 +28,11 @@ class LetterModel{
             url:"/letter/send?id="+data.id
         })
     }
+    static async getPublicLetterById(id){
+        return await Http.request({
+            url:"/letter/byId/"+id
+        })
+    }
 }
 export{
     LetterModel
