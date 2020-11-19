@@ -24,7 +24,10 @@ const mutations = {
     // 设置播放器的声音播放源
     SET_PLAYING_AUDIO(state,url){
         state.playingAudio = url
-    }
+    },
+    SET_LOADING_STATUS(state,status){
+        state.isLoading = status
+    },
 }
 
 export{

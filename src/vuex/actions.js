@@ -25,6 +25,10 @@ const set_player_status = ({commit},status)=>{
 const set_playing_audio = ({commit},url)=>{
     commit("SET_PLAYING_AUDIO",url)
 }
+// 设置加载中状态
+const set_loading_status=({commit},status)=>{
+    commit("SET_LOADING_STATUS",status)
+}
 export{
-    set_token,set_userinfo,change_collapse,set_path_arr,set_player_status,set_playing_audio
+    set_token,set_userinfo,change_collapse,set_path_arr,set_player_status,set_playing_audio,set_loading_status
 }

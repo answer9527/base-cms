@@ -47,6 +47,7 @@ if(sessionStorage.getItem("userInfo")){
 import createAlert from "./components/common/Confirm/index"
 Vue.use(createAlert)
 
+
 // 全局注册自定义的button
 import Button from "./components/common/Button/index"
 Vue.component("h-button",Button)
@@ -78,6 +79,7 @@ router.beforeEach((to, from, next) => {
 // 请求拦截器
 axios.interceptors.request.use(
   config => {
+    store.commit('SET_LOADING_STATUS',true)
     let token=store.state.token
     if (token) {
       config.headers.common["Authorization"] = "Bearer "+token;
@@ -93,8 +95,10 @@ axios.interceptors.request.use(
 
 // 响应拦截器
 axios.interceptors.response.use(res=>{
+  store.commit('SET_LOADING_STATUS',false)
   return res
 },error=>{
+  store.commit('SET_LOADING_STATUS',false)
   if(error.message.includes('timeout')){
     Vue.prototype.$message.error("响应超时！")
   }else{

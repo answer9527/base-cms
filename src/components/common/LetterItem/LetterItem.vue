@@ -15,7 +15,7 @@
         </div>
         <div>
             <el-dialog :visible.sync="dialog_info" title="信件详情">
-                111
+                <div>{{letterInfo.content}}</div>
             </el-dialog>
         </div>
     </div>

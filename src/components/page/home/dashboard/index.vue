@@ -17,8 +17,8 @@
       
       <div class="three_mindder flex-y flex-y-between flex-x-between">
         <v-Calendar :counts="counts" @nextMon="nextMon" @preMon="preMon" @selectDay="selectDay" width="100%" height="360px" v-if="counts.length>0" ></v-Calendar>
-        <div class="mindder_bottom">
-          {{rand_sentence}}
+        <div class="mindder_bottom flex-x">
+{{rand_sentence}}
         </div>
       </div>
       <div class="three_right">
@@ -241,17 +241,41 @@ export default {
      height: 180px;
      width: 100%;
      padding: 20px;
+
      box-sizing: border-box;
-     background: #FFFFFF;
+     color: #FFFFFF;
      border-radius:5px;
-     font-size: 14px;
+     font-size: 18px;
+     font-weight: bold;
      text-align: center;
-     display: flex;
-     flex-direction: column;
+     /* display: flex;
+     flex-direction: column; */
      align-items: center;
      justify-content: center;
+     background: url(../../../../assets/img/card_bg.jpg);
+     background-position: center;
+     background-size: cover;
 
   }
+   /* .three_mindder>.mindder_bottom>div:nth-child(1){
+     background-image: url("../../../../assets/img/box_left.png");
+     height: 100%;
+     width: 20px;
+   }
+    .three_mindder>.mindder_bottom>div:nth-child(2){
+      flex: 1;
+      height: 180px;
+      background-image: url("../../../../assets/img/box_con.png");
+    }
+  .three_mindder>.mindder_bottom>div:nth-child(3){
+     background-image: url("../../../../assets/img/box_right.png");
+     height: 100%;
+     width: 20px;
+   }
+   .three_mindder>.mindder_bottom>div{
+     background-repeat: no-repeat;
+     background-position: center;
+   } */
   .three_right{
 
     background:#FFFFFF; 

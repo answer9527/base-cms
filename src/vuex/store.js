@@ -17,7 +17,9 @@ const state = {
     // 播放器的状态
     playerStatus:false,
     // 播放的歌曲链接
-    playingAudio:""
+    playingAudio:"",
+    // 是否加载中
+    isLoading:false
 
 }
 
