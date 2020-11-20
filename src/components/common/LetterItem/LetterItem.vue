@@ -9,7 +9,7 @@
                 <div class="userName">{{letterInfo.userName}}</div>
             </div>
             <div class="create_time flex-y">
-                <span>写给未来的信</span>
+                <span class="flex-x flex-y-center">写给未来的信 <i :class="letterInfo.type==1?'letter_t':'letter_w'"></i></span>
                 <span>创建于{{$common.formatTime(letterInfo.createTime,"-")}}</span>
             </div>
         </div>
@@ -35,10 +35,10 @@ export default {
             type:Object
         },
 
-            type:{
-                type:String,
-                default:"future"
-            }
+        type:{
+            type:String,
+            default:"future"
+        }
    
     },
     methods:{
@@ -115,7 +115,7 @@ export default {
     background-size: contain;
    
 }
-/* 天空之城 */
+
 .letter_one>.user>.userName{
     padding: 5px 0;
     font-weight: bold;
@@ -138,6 +138,26 @@ export default {
 }
 .letter_one>.create_time>span:nth-child(2){
     font-size: 12px;
+}
+
+.letter_one>.create_time>span:nth-child(1)>i{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-left: 2px;
+
+}
+.letter_one>.create_time>span:nth-child(1)>.letter_t{
+
+    background-image:url(../../../assets/img/letter_t.png) ;
+    background-position: center;
+    background-size: contain;
+}
+.letter_one>.create_time>span:nth-child(1)>.letter_w{
+
+    background-image:url(../../../assets/img/letter_w.png) ;
+    background-position: center;
+    background-size: contain;
 }
 
 
