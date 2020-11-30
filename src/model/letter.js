@@ -33,6 +33,14 @@ class LetterModel{
             url:"/letter/byId/"+id
         })
     }
+
+    static async setLetterImage(data){
+        return await Http.request({
+            url:"/letter/set/image",
+            data,
+            method:"POST"
+        })
+    }
 }
 export{
     LetterModel

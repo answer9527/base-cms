@@ -24,6 +24,7 @@ export default {
         }
     },
     methods:{
+        // 上传成功的回调
         changeHandle(){
             const file = this.$refs.fileInt.files[0];
             Http.upload("/upload/file",file).then(res=>{
@@ -40,7 +41,7 @@ export default {
 .uploader_box{
     height: 160px;
     width: 160px;
-    border: 2px solid #000000;
+    border: 2px dashed #000000;
     border-radius: 5px;
     box-sizing: border-box;
 }
@@ -50,12 +51,11 @@ export default {
     background-image: url(../../../assets/img/uploader.png);
     background-position: center;
     background-size: cover;
-    
 }
 .add_icon{
     display: inline-block;
     width: 100%;
     height: 100%;
-    opacity: 0;
+    opacity: 0;  
 }
 </style>
